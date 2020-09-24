@@ -2,3 +2,4 @@
 
 # Langage : JEE
 # Structure : Maven
+# IDE : IntelliJ
