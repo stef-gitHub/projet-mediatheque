@@ -8,9 +8,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnexionBDD {
+
     static Connection conn;
     /**
-     * Connection à la BDD, /!\ vérifier le fichier config.properties /!\
+     * Connexion à la BDD : /!\ vérifier le fichier resources/config.properties /!\
      * */
     public static Connection connexion() throws SQLException, ClassNotFoundException, IOException {
         FileInputStream fis = new FileInputStream("./src/main/resources/config.properties");
