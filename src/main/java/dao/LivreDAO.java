@@ -32,6 +32,6 @@ public class LivreDAO {
         ResultSet rs = st.executeQuery(query);
 
         ConnexionBDD.close();
-        return null;
+        return livres;
     }
 }
