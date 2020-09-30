@@ -1,50 +1,143 @@
-/*!
- * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/templates/simple-sidebar)
- * Copyright 2013-2020 Start Bootstrap
- * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
- */
-
-#wrapper {
-    overflow-x: hidden;
-}
-
-#sidebar-wrapper {
-    min-height: 100vh;
-    margin-left: -15rem;
-    -webkit-transition: margin .25s ease-out;
-    -moz-transition: margin .25s ease-out;
-    -o-transition: margin .25s ease-out;
-    transition: margin .25s ease-out;
-}
-
-#sidebar-wrapper .sidebar-heading {
-    padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
-}
-
-#sidebar-wrapper .list-group {
-    width: 15rem;
-}
-
-#page-content-wrapper {
-    min-width: 100vw;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-    margin-left: 0;
-}
-
-@media (min-width: 768px) {
-    #sidebar-wrapper {
-        margin-left: 0;
+    .accueil-bar-color{
+        background-color: #563d7c;
     }
 
-    #page-content-wrapper {
-        min-width: 0;
-        width: 100%;
+    .monBouton {
+        background:none;
+        border:none;
+        color:#FFF;
+        cursor:pointer;
     }
 
-    #wrapper.toggled #sidebar-wrapper {
-        margin-left: -15rem;
+    #sidebar {
+        overflow: hidden;
+        z-index: 3;
+        border-right-style: solid;
+        border-color: #fdfcd6;
+        border-right-width: 2px;
     }
-}
+    #sidebar .list-group {
+        min-width: 400px;
+        background-color: #fdfcd6;
+        min-height: 100vh;
+    }
+    #sidebar i {
+        margin-right: 6px;
+    }
+
+    #sidebar .list-group-item {
+        border-radius: 0;
+        background-color:  #563d7c;
+        font-size: 20px;
+        color: #EEE;
+        border-left: 0;
+        border-right: 0;
+        border-color: #563d7c;
+        white-space: nowrap;
+    }
+
+    /* highlight active menu */
+    #sidebar .list-group-item:not(.collapsed) {
+        background-color: #563d7c;
+    }
+
+    /* closed state */
+    #sidebar .list-group .list-group-item[aria-expanded="false"]::after {
+        content: "";
+        font-family: FontAwesome;
+        display: inline;
+        text-align: right;
+        padding-left: 5px;
+    }
+
+    /* open state */
+    #sidebar .list-group .list-group-item[aria-expanded="true"] {
+        background-color: #8f58ad;
+    }
+    #sidebar .list-group .list-group-item[aria-expanded="true"]::after {
+        content: "";
+        font-family: FontAwesome;
+        display: inline;
+        text-align: right;
+        padding-left: 5px;
+    }
+
+    /* level 1*/
+    #sidebar .list-group .collapse .list-group-item,
+    #sidebar .list-group .collapsing .list-group-item  {
+        padding-left: 20px;
+    }
+
+    /* level 2*/
+    #sidebar .list-group .collapse > .collapse .list-group-item,
+    #sidebar .list-group .collapse > .collapsing .list-group-item {
+        padding-left: 30px;
+    }
+
+    /* level 3*/
+    #sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
+        padding-left: 40px;
+    }
+
+    @media (max-width:768px) {
+        #sidebar {
+            min-width: 35px;
+            max-width: 40px;
+            overflow-y: auto;
+            overflow-x: visible;
+            transition: all 0.25s ease;
+            transform: translateX(-45px);
+        }
+
+        #sidebar.show {
+            transform: translateX(0);
+        }
+
+        #sidebar::-webkit-scrollbar{ width: 0px; }
+
+        #sidebar, #sidebar .list-group {
+            min-width: 1px;
+            overflow: visible;
+        }
+        /* overlay sub levels on small screens */
+        #sidebar .list-group .collapse.show, #sidebar .list-group .collapsing {
+            position: relative;
+            z-index: 1;
+            width: 190px;
+            top: 0;
+        }
+        #sidebar .list-group > .list-group-item {
+            text-align: center;
+            padding: .75rem .5rem;
+        }
+        /* hide caret icons of top level when collapsed */
+        #sidebar .list-group > .list-group-item[aria-expanded="true"]::after,
+        #sidebar .list-group > .list-group-item[aria-expanded="false"]::after {
+            display:none;
+        }
+    }
+
+    .collapse.show {
+        visibility: visible;
+    }
+    .collapsing {
+        visibility: visible;
+        height: 0;
+        -webkit-transition-property: height, visibility;
+        transition-property: height, visibility;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+    .collapsing.width {
+        -webkit-transition-property: width, visibility;
+        transition-property: width, visibility;
+        width: 0;
+        height: 100%;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+
+
+
+
