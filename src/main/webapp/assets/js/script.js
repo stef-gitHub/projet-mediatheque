@@ -9,10 +9,14 @@ window.onload = function typeWriter() {
         i++;
         setTimeout(typeWriter, speed);
     }
-}
-// change la couleur des sous items de la sidebar en passant dessus
-$(".hover-color").hover(function(){
-    $(this).css("background-color", "#8f58ad");
-}, function(){
-    $(this).css("background-color", "#563d7c");
+};
+
+$( document ).ready(function() {
+    // change la couleur des sous items de la sidebar en passant dessus
+    $(".hover-color").hover(function(){
+       // $(this).css("background-color", "#99ac63");
+        $(this).css("background-color", "#3f1d5f");
+    }, function(){
+        $(this).css("background-color", "#563d7c");
+    });
 });

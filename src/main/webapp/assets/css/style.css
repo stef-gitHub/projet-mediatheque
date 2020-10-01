@@ -1,7 +1,12 @@
     .accueil-bar-color{
         background-color: #563d7c;
     }
-
+    .accueil-bar-background-color{
+        background-color: #fdfcd6;
+    }
+    .monItemHref {
+        text-decoration:none !important;
+    }
     .monHref {
         margin-bottom: 1px;
         text-decoration:none !important;
