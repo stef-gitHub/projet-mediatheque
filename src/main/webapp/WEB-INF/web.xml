@@ -37,6 +37,10 @@
     <servlet-name>LivreCreerServlet</servlet-name>
     <servlet-class>servlet.LivreCreerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AuthentificationServlet</servlet-name>
+    <servlet-class>servlet.AuthentificationServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -69,5 +73,9 @@
   <servlet-mapping>
     <servlet-name>LivreCreerServlet</servlet-name>
     <url-pattern>/creer_livre</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AuthentificationServlet</servlet-name>
+    <url-pattern>/authentification</url-pattern>
   </servlet-mapping>
 </web-app>
