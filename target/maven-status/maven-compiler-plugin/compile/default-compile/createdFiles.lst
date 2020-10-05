@@ -1,7 +1,10 @@
-dao\PersonneDAO.class
 servlet\AdministrateurServlet.class
 beans\Utilisateur.class
+dao\SupportDAO.class
+dao\TypeDAO.class
+dao\RoleDAO.class
 beans\Abonnement.class
+dao\AbonnementDAO.class
 dao\EmpruntDAO.class
 beans\Emprunt.class
 servlet\EmpruntServlet.class

@@ -11,6 +11,10 @@ import java.util.Date;
 import java.sql.*;
 
 public class SupportDAO {
+
+    /**
+     *
+     * */
     public static ArrayList<Support> afficherSupports() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Support> supports = new ArrayList<>();
 
