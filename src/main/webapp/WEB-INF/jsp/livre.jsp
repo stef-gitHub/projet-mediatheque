@@ -18,6 +18,7 @@
                     <hr>
                 </div>
             </div>
+
             <!-- Informations et texte-->
             <div style ="background-color: white;margin-top: 50px; max-width: 80%" class="container">
                 <div class="row">

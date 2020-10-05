@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AdministrateurServlet extends HttpServlet{
+public class LivreCreerServlet extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -14,6 +14,6 @@ public class AdministrateurServlet extends HttpServlet{
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 
-            response.sendRedirect("administrateur");
-        }
+        response.sendRedirect("livre");
+    }
 }
