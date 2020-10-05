@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /accueil HTTP/1.1" 200 232674 http-bio-8080-exec-1 466
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /assets/js/script.js HTTP/1.1" 200 677 http-bio-8080-exec-6 2
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /assets/js/bootstrap.min.js HTTP/1.1" 200 60050 http-bio-8080-exec-5 2
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /assets/js/jquery.min.js HTTP/1.1" 200 89478 http-bio-8080-exec-3 3
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /assets/js/popper.min.js HTTP/1.1" 200 19038 http-bio-8080-exec-4 2
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /assets/js/all.min.js HTTP/1.1" 200 1182684 http-bio-8080-exec-2 8
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /webfonts/fa-solid-900.woff2 HTTP/1.1" 404 1005 http-bio-8080-exec-2 1
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /webfonts/fa-solid-900.woff HTTP/1.1" 404 1003 http-bio-8080-exec-2 0
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /webfonts/fa-solid-900.ttf HTTP/1.1" 404 1001 http-bio-8080-exec-2 1
+0:0:0:0:0:0:0:1 - - [05/Oct/2020:09:01:35 +0100] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-2 2
+10.173.131.27 - - [05/Oct/2020:09:09:21 +0100] "GET /HNAP1/ HTTP/1.1" 404 963 http-bio-8080-exec-6 2

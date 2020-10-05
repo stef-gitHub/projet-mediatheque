@@ -1,7 +1,6 @@
 package dao;
 
 import beans.ConnexionBDD;
-import beans.Livre;
 
 import java.io.IOException;
 import java.sql.ResultSet;

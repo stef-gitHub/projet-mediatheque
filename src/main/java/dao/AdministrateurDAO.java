@@ -1,6 +1,5 @@
 package dao;
 
-import beans.Administrateur;
 import beans.ConnexionBDD;
 
 import java.io.IOException;

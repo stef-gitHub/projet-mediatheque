@@ -5,12 +5,17 @@ import java.util.Date;
 public class Emprunt {
 
     private int id_emprunt;
-    private int id_utilisateur;
-    private int id_livre;
-    private int id_digital;
+    private Utilisateur id_utilisateur;
+    private Support id_support;
     private Date date_debut;
     private Date date_fin;
     private Date date_rendu;
+
+    public Emprunt(Date date_debut, Date date_fin, Date date_rendu) {
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.date_rendu = date_rendu;
+    }
 
     public int getId_emprunt() {
         return id_emprunt;
@@ -20,28 +25,20 @@ public class Emprunt {
         this.id_emprunt = id_emprunt;
     }
 
-    public int getId_utilisateur() {
+    public Utilisateur getId_utilisateur() {
         return id_utilisateur;
     }
 
-    public void setId_utilisateur(int id_utilisateur) {
+    public void setId_utilisateur(Utilisateur id_utilisateur) {
         this.id_utilisateur = id_utilisateur;
     }
 
-    public int getId_livre() {
-        return id_livre;
+    public Support getId_support() {
+        return id_support;
     }
 
-    public void setId_livre(int id_livre) {
-        this.id_livre = id_livre;
-    }
-
-    public int getId_digital() {
-        return id_digital;
-    }
-
-    public void setId_digital(int id_digital) {
-        this.id_digital = id_digital;
+    public void setId_support(Support id_support) {
+        this.id_support = id_support;
     }
 
     public Date getDate_debut() {
