@@ -17,6 +17,9 @@ public class Utilisateur {
     private boolean isActif;
     private Abonnement unAbonnement;
 
+    public Utilisateur() {
+    }
+
     public Utilisateur(String nom, String prenom, String adresse, String mdp, String email, String ville, Role id_role, int code_postal, int num_telephone, boolean isActif, Abonnement unAbonnement) {
         this.nom = nom;
         this.prenom = prenom;

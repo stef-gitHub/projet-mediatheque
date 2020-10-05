@@ -2,6 +2,7 @@ dao\PersonneDAO.class
 servlet\AdministrateurServlet.class
 beans\Utilisateur.class
 beans\Abonnement.class
+dao\EmpruntDAO.class
 beans\Emprunt.class
 servlet\EmpruntServlet.class
 servlet\UtilisateurServlet.class
