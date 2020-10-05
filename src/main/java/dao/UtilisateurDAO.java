@@ -5,12 +5,8 @@ import beans.ConnexionBDD;
 import beans.Utilisateur;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class UtilisateurDAO {
 
@@ -131,6 +127,24 @@ public class UtilisateurDAO {
 
     public static void creerPenalite(float penalite, Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
         ConnexionBDD.connexion();
+    }
+
+    public static Utilisateur getByIdUtilisateur(int id_utilisateur) throws SQLException, IOException, ClassNotFoundException {
+
+        Utilisateur utilisateur = new Utilisateur();
+
+        String query = "SELECT * FROM utilisateur where utilisateur.id_utilisateur = "+id_utilisateur;
+        Statement st = ConnexionBDD.connexion().createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+        while (rs.next())
+        {
+            utilisateur.setId_utilisateur(utilisateur.getId_utilisateur());
+        }
+        ConnexionBDD.connexion().close();
+
+        return utilisateur;
+
     }
 
 }

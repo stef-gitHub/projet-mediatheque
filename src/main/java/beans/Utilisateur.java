@@ -35,7 +35,8 @@ public class Utilisateur {
                 '}';
     }
 
-    public Utilisateur(String nom, String prenom, String adresse, String mdp, String email, String ville, Role id_role, int code_postal, String num_telephone, int isActif, Abonnement unAbonnement) {
+    public Utilisateur(String nom, String prenom, String adresse, String mdp, String email, String ville, Role id_role,
+                       int code_postal, String num_telephone, int isActif, Abonnement unAbonnement) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
