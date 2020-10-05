@@ -4,6 +4,9 @@ public class Type {
     private int id_type;
     private String libelle_type;
 
+    public Type() {
+    }
+
     public Type(String libelle_type) {
         this.libelle_type = libelle_type;
     }
