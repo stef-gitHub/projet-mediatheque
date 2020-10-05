@@ -16,7 +16,7 @@
 
     <title>Accueil</title>
 </head>
-<body>
+<body style="background-color: #ffffff96">
 <div class="container-fluid" >
     <div class="row d-flex d-md-block flex-nowrap wrapper">
         <div class="accueil-bar-background-color col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
@@ -59,7 +59,7 @@
             <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
                 <div class="col-md-12 text-center">
                     <hr>
-                    <h3 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="text-white fas fa-user"></i></span></h3>
+                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="text-white fas fa-user"></i></span></h2>
                     <hr>
                 </div>
             </div>
@@ -132,7 +132,6 @@
     </div>
 </div>
 <script>
-
 </script>
 </body>
 </html>
