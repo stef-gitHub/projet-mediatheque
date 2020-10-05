@@ -1,3 +1,6 @@
+<%@ page import="beans.Support" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -124,13 +127,14 @@
                             </thead>
                             <tbody>
                             <%
-                                // List<Livre> list = (ArrayList<Livre>)request.getAttribute("livres");
-                                // for (Livre livre : list) {
+                                List<Support> list = (ArrayList<Support>)request.getAttribute("livres");
+                                for (Support supportLivres : list) {
                             %>
                             <tr>
-                                <td> <% // out.print(livre.getTitre().toUpperCase());%></td>
-                                <td> <% // out.print(livre.getAuteur());%></td>
-                                <td> <% // out.print(livre.getAnnee());%></td>
+                                <td> <% out.print(supportLivres.getTitre().toUpperCase());%></td>
+                                <td> <% out.print(supportLivres.getAuteur());%></td>
+                                <td> <% out.print(supportLivres.getDate());%></td>
+                                <td> <% out.print(supportLivres.getQuantite());%></td>
                                 <td>
                                     <div class="float-right">
                                         <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivre" type="button" class="btn btn-warning" onclick="modifier('<% //out.print(livre.getId_livre());%>', '<% //out.print(livre.getLivre());%>', '<% // out.print(livre.getAuteur());%>', '<% //out.print(livre.getAnnee);%>')" value="Modifier"/>
@@ -166,7 +170,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <% //} %>
+                            <% } %>
                             </tbody>
                         </table>
 
