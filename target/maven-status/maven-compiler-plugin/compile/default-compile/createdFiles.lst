@@ -1,4 +1,3 @@
-dao\PersonneDAO.class
 servlet\AdministrateurServlet.class
 beans\Utilisateur.class
 beans\Abonnement.class

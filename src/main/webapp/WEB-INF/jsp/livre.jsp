@@ -124,7 +124,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <form action="livre" method="post">
-                                        <input hidden type="text" value="" name="idLivreModifier" id="idLivreModifier"/>
+                                        <input hidden type="text" id="idLivreModifier" name="idLivreModifier">
 
                                         <!-- Modal UPDATE Header -->
                                         <div class="modal-header background-color-classe">
@@ -179,8 +179,6 @@
                 </div>
             </div>
         </main>
-    </div>
-</div>
 <script>
     function modifier(id_livre, titre_livre, auteur_livre, annee_livre, quantite_livre, type_livre){
         //alert(id_classe+" "+nom_classe+" "+annee_classe+" "+id_niveau);

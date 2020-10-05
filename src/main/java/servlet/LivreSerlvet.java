@@ -34,24 +34,24 @@ public class LivreSerlvet extends HttpServlet {
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-        if(request.getParameter("idLivreModifier") != null){
-        Support support = new Support();
-        support.setTitre(request.getParameter("modifierNomLivre"));
-        support.setAuteur(request.getParameter("modifierAuteurLivre"));
-        support.setDate(request.getParameter("modifierAnneeLivre"));
-        support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteLivre")));
-            try {
-                support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeLivre"))));
-            } catch (SQLException | ClassNotFoundException throwables) {
-                throwables.printStackTrace();
-            }
-            try {
-            SupportDAO.modifierSupport(support);
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
-        }
 
+        try {
+
+        if(request.getParameter("modifierNomLivre") != null) {
+            System.out.println("test");
+            Support support = new Support();
+            support.setId_support(Integer.parseInt(request.getParameter("idLivreModifier")));;
+            support.setTitre(request.getParameter("modifierNomLivre"));
+            support.setAuteur(request.getParameter("modifierAuteurLivre"));
+            support.setDate(request.getParameter("modifierAnneeLivre"));
+            support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteLivre")));
+            support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeLivre"))));
+            SupportDAO.modifierSupport(support);
+
+        }
         response.sendRedirect("livre");
+        } catch (SQLException | ClassNotFoundException throwables) {
+                throwables.printStackTrace();
         }
     }
 }
