@@ -9,8 +9,19 @@ public class Role {
         this.libelle_role = libelle_role;
     }
 
+    public Role() {
+    }
+
     public int getId_role() {
         return id_role;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id_role=" + id_role +
+                ", libelle_role='" + libelle_role + '\'' +
+                '}';
     }
 
     public void setId_role(int id_role) {
