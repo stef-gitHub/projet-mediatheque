@@ -1,6 +1,7 @@
 <%@ page import="beans.Support" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="beans.Type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,16 +9,7 @@
 </head>
 
 <%@include file="navbar.jsp" %>
-        <!-- Partie main -->
-        <main class="col-md-10 float-left col pl-md-2 main">
-            <!-- Titre + logo connexion -->
-            <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
-                <div class="col-md-12 text-center">
-                    <hr>
-                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="text-white fas fa-user"></i></span></h2>
-                    <hr>
-                </div>
-            </div>
+
             <!-- Informations et texte-->
             <div style ="background-color: white;margin-top: 50px; max-width: 80%" class="container">
                 <div class="row">
@@ -74,6 +66,7 @@
                                 <th>Auteur</th>
                                 <th>année</th>
                                 <th>Quantité </th>
+                                <th>Type</th>
                                 <th><div style="text-align: center">Actions</div></th>
                             </tr>
                             </thead>
@@ -87,9 +80,10 @@
                                 <td> <% out.print(supportLivres.getAuteur());%></td>
                                 <td> <% out.print(supportLivres.getDate());%></td>
                                 <td> <% out.print(supportLivres.getQuantite());%></td>
+                                <td> <% out.print(supportLivres.getType().getLibelle_type());%></td>
                                 <td>
                                     <div class="float-right">
-                                        <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivre" type="button" class="btn btn-warning" onclick="modifier('<% //out.print(livre.getId_livre());%>', '<% //out.print(livre.getLivre());%>', '<% // out.print(livre.getAuteur());%>', '<% //out.print(livre.getAnnee);%>')" value="Modifier"/>
+                                        <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivre" type="button" class="btn btn-warning" onclick="modifier('<% out.print(supportLivres.getId_support());%>', '<% out.print(supportLivres.getTitre());%>', '<% out.print(supportLivres.getAuteur());%>', '<% out.print(supportLivres.getDate());%>', '<% out.print(supportLivres.getQuantite());%>', '<% out.print(supportLivres.getType().getId_type());%>')" value="Modifier"/>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerLivre<% // out.print(classe.getId_classe());%>">Archiver</button>
                                         <!-- The Modal Professor DELETE -->
                                         <div class="modal fade" id="supprimerLivre<% // out.print(livre.getId_livre());%>">
@@ -98,7 +92,7 @@
 
                                                     <!-- Modal DELETE Header -->
                                                     <div class="modal-header background-color-classe">
-                                                        <h4 class="modal-title text-color-items">Arcgiver un livre</h4>
+                                                        <h4 class="modal-title text-color-items">Archiver un livre</h4>
                                                         <button type="button" class="close text-color-items" data-dismiss="modal">&times;</button>
                                                     </div>
 
@@ -150,12 +144,24 @@
                                                 <input type="text" class="form-control" id="modifierAuteurLivre" name="modifierAuteurLivre" value="" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="modifierAnneeLivre">Année</label>
-                                                <input type="date" class="form-control" id="modifierAnneeLivre" name="modifierAnneeLivre" value="" required>
+                                                <label for="modifierAnneeLivre">Date</label>
+                                                <input type="text" class="form-control" id="modifierAnneeLivre" name="modifierAnneeLivre" value="" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="modifierQuantiteLivre">Quantité</label>
-                                                <input type="number" min="1900" max="2099" step="1" value="" class="form-control" id="modifierQuantiteLivre" name="modifierQuantiteLivre" required>
+                                                <input type="number" value="" class="form-control" id="modifierQuantiteLivre" name="modifierQuantiteLivre" required>
+                                            </div>
+                                            <div class="form-group" id ="test">
+                                                <label for="modifierTypeLivre">Type de livre</label>
+                                                <select id="modifierTypeLivre" name="modifierTypeLivre" class="form-control">
+                                                    <%
+                                                        List<Type> listeTypes = (ArrayList<Type>)request.getAttribute("types");
+                                                        for (Type type : listeTypes) {
+                                                    %>
+                                                    <option style="white-space: pre" value=<%out.println(type.getId_type());%>>
+                                                        <% out.println(type.getLibelle_type());%></option>
+                                                    <% } %>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -176,12 +182,14 @@
     </div>
 </div>
 <script>
-    function modifier(id_livre, titre_livre, auteur_livre, annee_livre){
+    function modifier(id_livre, titre_livre, auteur_livre, annee_livre, quantite_livre, type_livre){
         //alert(id_classe+" "+nom_classe+" "+annee_classe+" "+id_niveau);
         $("#idLivreModifier").attr('value', id_livre);
         $("#modifierNomLivre").attr('value', titre_livre);
         $("#modifierAuteurLivre").attr('value', auteur_livre);
         $("#modifierAnneeLivre").attr('value', annee_livre);
+        $("#modifierQuantiteLivre").attr('value', quantite_livre);
+        $("#modifierTypeLivre").attr('value', type_livre);
     }
 </script>
 </body>
