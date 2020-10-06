@@ -9,48 +9,32 @@
             <div class="list-group border-0 text-center text-md-left">
                 <!-- Abonnés -->
                 <a href="#menuAbonne" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-id-card"></i>
-                    <span class="d-none d-md-inline">Abonné<i class="ml-1 fas fa-caret-down"></i></span></a>
+                    <span class="d-none d-md-inline">Horaires<i class="ml-1 fas fa-caret-down"></i></span></a>
                 <div style="margin-bottom: 1px;" class="collapse" id="menuAbonne" data-parent="#sidebar">
                     <a href="#" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
                     <a href="utilisateur" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
                 </div>
                 <!-- Livre -->
                 <a href="#menuLivre" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
-                    <span class="d-none d-md-inline">Livre <i class="ml-1 fas fa-caret-down"></i></span></a>
+                    <span class="d-none d-md-inline">Newsletters<i class="ml-1 fas fa-caret-down"></i></span></a>
                 <div style="margin-bottom: 1px;" class="collapse" id="menuLivre" data-parent="#sidebar">
                     <a href="creer_livre" class="monItemHref hover-color list-group-item" data-parent="#menuLivre"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
                     <a href="livre" class="monItemHref hover-color list-group-item" data-parent="#menuLivre"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
                 </div>
                 <!-- CD -->
                 <a href="#menuCD" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
-                    <span class="d-none d-md-inline">CD <i class="ml-1 fas fa-caret-down"></i></span></a>
+                    <span class="d-none d-md-inline">Nous contacter<i class="ml-1 fas fa-caret-down"></i></span></a>
                 <div style="margin-bottom: 1px;" class="collapse" id="menuCD" data-parent="#sidebar">
                     <a href="creer_cd" class="monItemHref hover-color list-group-item" data-parent="#menuCD"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
                     <a href="cd" class="monItemHref hover-color list-group-item" data-parent="#menuCD"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
                 </div>
                 <!-- DVD -->
                 <a href="#menuDVD" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
-                    <span class="d-none d-md-inline">DVD <i class="ml-1 fas fa-caret-down"></i></span></a>
+                    <span class="d-none d-md-inline">Plan d'accès<i class="ml-1 fas fa-caret-down"></i></span></a>
                 <div style="margin-bottom: 1px;" class="collapse" id="menuDVD" data-parent="#sidebar">
                     <a href="creer_dvd" class="monItemHref hover-color list-group-item" data-parent="#menuDVD"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
                     <a href="dvd" class="monItemHref hover-color list-group-item" data-parent="#menuDVD"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
                 </div>
-                <!-- Livre numérique -->
-                <a href="#menuLivreNumerique" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
-                    <span class="d-none d-md-inline">Livre numérique <i class="ml-1 fas fa-caret-down"></i></span></a>
-                <div style="margin-bottom: 1px;" class="collapse" id="menuLivreNumerique" data-parent="#sidebar">
-                    <a href="#" class="monItemHref hover-color list-group-item" data-parent="#menuLivreNumerique"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
-                    <a href="#" class="monItemHref hover-color list-group-item" data-parent="#menuLivreNumerique"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
-                </div>
-                <!-- Emprunt -->
-                <a href="#menuEmprunt" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-exchange-alt"></i>
-                    <span class="d-none d-md-inline">Emprunt <i class="ml-1 fas fa-caret-down"></i></span></a>
-                <div style="margin-bottom: 1px;" class="collapse" id="menuEmprunt" data-parent="#sidebar">
-                    <a href="#" class="monItemHref hover-color list-group-item" data-parent="#menuEmprunt"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
-                    <a href="emprunt" class="monItemHref hover-color list-group-item" data-parent="#menuEmprunt"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
-                </div>
-                <!-- Profil -->
-                <a href="#" class="monItemHref  list-group-item d-inline-block collapsed"><i class="fas fa-user"></i> <span class="d-none d-md-inline">Profil</span></a>
             </div>
         </div>
         <!-- Partie main -->
@@ -59,8 +43,16 @@
             <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
                 <div class="col-md-12 text-center">
                     <hr>
-                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="text-white fas fa-user"></i></span></h2>
+                    <a href="/authentification"><h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="text-white fas fa-user"></i></span></h2></a>
                     <hr>
                 </div>
             </div>
+            <div>
+                <h1>Site vitrine</h1>
+            </div>
 
+        </main>
+    </div>
+</div>
+</body>
+</html>

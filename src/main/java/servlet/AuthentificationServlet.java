@@ -1,6 +1,10 @@
 package servlet;
 
+import beans.Utilisateur;
+import dao.AuthentificationDAO;
+
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,21 +20,35 @@ public class AuthentificationServlet extends HttpServlet {
     /**
      * Pour simuler une interface de connexion sans BDD
      */
-    protected void doPost(HttpServletRequest request,
+    public void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-
         HttpSession session = request.getSession();
+        Utilisateur utilisateur = new Utilisateur();
 
         if (request.getParameter("login") != null){
 
             String login = request.getParameter("login");
             String mdp  = request.getParameter("mdp");
+            utilisateur.setEmail(login);
+            utilisateur.setMdp(mdp);
+            try {
+                utilisateur = AuthentificationDAO.SeConnecter(utilisateur);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            if (utilisateur.getId_role() != null){
 
-            if (login.equals("Florian") && mdp.equals("a")){
-
-                session.setAttribute("login", login);
-                response.sendRedirect("accueil");
+                if(utilisateur.getId_role().getId_role() == 1){
+                    session.setAttribute("login", login);
+                    response.sendRedirect("accueil");
+                }
+                else {
+                    session.setAttribute("login", login);
+                    response.sendRedirect("livre");
+                }
             }
             else{
                 response.sendRedirect("authentification");
