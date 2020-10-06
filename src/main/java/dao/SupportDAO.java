@@ -102,18 +102,19 @@ public class SupportDAO {
         return supports;
     }
 
-
+    // Creer un support ( livre , cd , dvd , livre numérique )
     public static void creerSupport(Support support) throws SQLException, IOException, ClassNotFoundException {
 
         PreparedStatement preparedStatement = null;
         System.out.println("creerSupport");
 
-        preparedStatement = ConnexionBDD.connexion().prepareStatement("INSERT INTO support(titre, auteur, date, quantite, id_type) VALUES(?, ?, ?, ?, ?);");
+        preparedStatement = ConnexionBDD.connexion().prepareStatement("INSERT INTO support(titre, auteur, date, quantite, id_type, actif) VALUES(?, ?, ?, ?, ?, ?);");
         preparedStatement.setString(1, support.getTitre());
         preparedStatement.setString(2, support.getAuteur());
         preparedStatement.setString(3, support.getDate());
         preparedStatement.setInt(4, support.getQuantite());
         preparedStatement.setInt(5, support.getType().getId_type());
+        preparedStatement.setInt(6, support.getActif());
 
         preparedStatement.executeUpdate();
 

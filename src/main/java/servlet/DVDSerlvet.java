@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class CDSerlvet extends HttpServlet {
+public class DVDSerlvet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int id_type_cd = 2;
+        int id_type_dvd = 3;
 
         try {
-            request.setAttribute("cds", SupportDAO.afficherSupportsFiltres(id_type_cd));
+            request.setAttribute("dvds", SupportDAO.afficherSupportsFiltres(id_type_dvd));
             request.setAttribute("types", TypeDAO.afficherType());
 
         } catch (SQLException | ClassNotFoundException throwables) {
@@ -26,30 +26,30 @@ public class CDSerlvet extends HttpServlet {
         }
 
 
-        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/cd.jsp" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/dvd.jsp" ).forward( request, response );
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 
         try {
 
-        if(request.getParameter("modifierNomCD") != null) {
+        if(request.getParameter("modifierNomDVD") != null) {
             System.out.println("test");
             Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idCDModifier")));
-            support.setTitre(request.getParameter("modifierNomCD"));
-            support.setAuteur(request.getParameter("modifierAuteurCD"));
-            support.setDate(request.getParameter("modifierAnneeCD"));
-            support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteCD")));
-            support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeCD"))));
+            support.setId_support(Integer.parseInt(request.getParameter("idDVDModifier")));;
+            support.setTitre(request.getParameter("modifierNomDVD"));
+            support.setAuteur(request.getParameter("modifierAuteurDVD"));
+            support.setDate(request.getParameter("modifierAnneeDVD"));
+            support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteDVD")));
+            support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeDVD"))));
             SupportDAO.modifierSupport(support);
 
-        }else if(request.getParameter("supprimerCD") != null){
+        }else if(request.getParameter("supprimerDVD") != null){
             Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idCD")));
+            support.setId_support(Integer.parseInt(request.getParameter("idDVD")));
             SupportDAO.archiverSupport(support);
         }
-        response.sendRedirect("cd");
+        response.sendRedirect("dvd");
         } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
         }

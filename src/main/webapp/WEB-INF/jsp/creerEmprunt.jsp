@@ -7,9 +7,9 @@
 <!-- Partie main -->
 <!-- Informations et texte-->
 <div class="container">
-    <h2>Ajouter un livre</h2>
+    <h2>Ajouter un emprunt</h2>
     <p>Les champs ci-dessous sont obligatoires</p>
-    <form action="creer_livre" method="post" class="was-validated">
+    <form action="creer_emprunt" method="post" class="was-validated">
         <div class="form-group">
             <label for="creerTitreLivre">Titre</label>
             <input type="text" class="form-control" id="creerTitreLivre" placeholder="Titre du livre" name="creerTitreLivre" required>

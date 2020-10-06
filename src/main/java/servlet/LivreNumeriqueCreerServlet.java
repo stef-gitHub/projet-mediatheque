@@ -11,25 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class LivreCreerServlet extends HttpServlet{
+public class LivreNumeriqueCreerServlet extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerLivre.jsp" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerLivreNumerique.jsp" ).forward( request, response );
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
         try {
-            if(request.getParameter("creerTitreLivre") != null) {
+            if(request.getParameter("creerTitreLivreNumerique") != null) {
                 Support support = new Support();
-                support.setTitre(request.getParameter("creerTitreLivre"));
-                support.setAuteur(request.getParameter("creerAuteurLivre"));
-                support.setDate(request.getParameter("creerAnneeLivre"));
-                support.setQuantite(Integer.parseInt(request.getParameter("creerQuantiteLivre")));
+                support.setTitre(request.getParameter("creerTitreLivreNumerique"));
+                support.setAuteur(request.getParameter("creerAuteurLivreNumerique"));
+                support.setDate(request.getParameter("creerAnneeLivreNumerique"));
+                support.setQuantite(Integer.parseInt(request.getParameter("creerQuantiteLivreNumerique")));
                 support.setActif(1);
-                support.setType(TypeDAO.getTypeById(1));
+                support.setType(TypeDAO.getTypeById(4));
                 SupportDAO.creerSupport(support);
             }
-            response.sendRedirect("livre");
+            response.sendRedirect("livre_numerique");
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }

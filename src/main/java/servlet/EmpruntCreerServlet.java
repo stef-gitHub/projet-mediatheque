@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class LivreCreerServlet extends HttpServlet{
+public class EmpruntCreerServlet extends HttpServlet{
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerLivre.jsp" ).forward( request, response );
+        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerEmprunt.jsp" ).forward( request, response );
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
         try {
