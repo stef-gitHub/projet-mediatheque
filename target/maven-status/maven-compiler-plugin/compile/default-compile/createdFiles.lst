@@ -2,8 +2,6 @@ servlet\AdministrateurServlet.class
 beans\Utilisateur.class
 beans\Abonnement.class
 dao\EmpruntDAO.class
-servlet\AccueilServlet.class
-servlet\ConnexionServlet.class
 beans\Emprunt.class
 servlet\EmpruntServlet.class
 servlet\UtilisateurServlet.class
@@ -11,5 +9,8 @@ dao\UtilisateurDAO.class
 servlet\LivreSerlvet.class
 beans\ConnexionBDD.class
 beans\Type.class
+servlet\AccueilServlet.class
 beans\Support.class
+servlet\DigitalSerlvet.class
 beans\Role.class
+servlet\ConnexionServlet.class

@@ -36,7 +36,7 @@ public class CDSerlvet extends HttpServlet {
         if(request.getParameter("modifierNomCD") != null) {
             System.out.println("test");
             Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idCDModifier")));;
+            support.setId_support(Integer.parseInt(request.getParameter("idCDModifier")));
             support.setTitre(request.getParameter("modifierNomCD"));
             support.setAuteur(request.getParameter("modifierAuteurCD"));
             support.setDate(request.getParameter("modifierAnneeCD"));
