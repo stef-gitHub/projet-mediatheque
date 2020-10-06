@@ -74,6 +74,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="roleUtilisateurCreer">Role</label>
+                                            <br>
                                             <select id="roleUtilisateurCreer" name="roleUtilisateurCreer">
                                                 <%
                                                     List<Role> listRoles = (ArrayList<Role>)request.getAttribute("roles");
@@ -88,6 +89,9 @@
                                     </div>
                                     <!-- Modal CREATE footer -->
                                     <div class="modal-footer">
+                                        <div class="alert alert-secondary" role="alert">
+                                            Créer un utilisateur entraine la création d'un abonnnement d'un an à partir d'aujourd'hui
+                                        </div>
                                         <input type="submit" class="btn btn-success" name="creerUtilisateur" value="Créer"/>
                                     </div>
                                 </form>
@@ -226,6 +230,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="roleUtilisateurModifier">Role</label>
+                                    <br>
                                     <select id="roleUtilisateurModifier" name="roleUtilisateurModifier">
                                         <%
                                             for (Role roles : listRoles) {

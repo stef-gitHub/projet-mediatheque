@@ -119,7 +119,7 @@ public class UtilisateurDAO {
             utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
         }
- 
+
         return utilisateur;
     }
 

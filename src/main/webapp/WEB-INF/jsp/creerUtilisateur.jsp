@@ -60,6 +60,7 @@
         </div>
         <div class="form-group" id ="test">
             <h5>Sélectionnez son rôle</h5>
+            <br>
             <select id="selectRoleUtilisateur" name="selectRoleUtilisateur">
                 <%
                     // List<Role> listRoles = (ArrayList<Role>)request.getAttribute("roles");
@@ -72,8 +73,12 @@
             </select>
         </div>
 
+        <div class="alert alert-secondary" role="alert">
+            Créer un utilisateur entraine la création d'un abonnnement d'un an à partir d'aujourd'hui
 
-        <button type="submit" class="btn btn-primary">Créer</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg text-center">Créer</button>
     </form>
 </div>
 </main>
