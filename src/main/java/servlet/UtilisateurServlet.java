@@ -21,9 +21,7 @@ public class UtilisateurServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
         RoleDAO roleDAO = new RoleDAO();
-        AbonnementDAO abonnementDAO = new AbonnementDAO();
 
         try {
             request.setAttribute("utilisateurs", UtilisateurDAO.afficherListeUtilisateur());
@@ -40,7 +38,6 @@ public class UtilisateurServlet extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
         RoleDAO roleDAO = new RoleDAO();
-        AbonnementDAO abonnementDAO = new AbonnementDAO();
 
         try {
             if(request.getParameter("creerUtilisateur") != null) {
@@ -54,6 +51,7 @@ public class UtilisateurServlet extends HttpServlet {
                 u.setCode_postal(Integer.parseInt(request.getParameter("cpUtilisateurCreer")));
                 u.setNum_telephone(request.getParameter("telUtilisateurCreer"));
                 u.setEmail(request.getParameter("mailUtilisateurCreer"));
+                u.setActif(1);
 
                 Abonnement a = new Abonnement();
                 a.setNumero_abonne(a.creerNumABonne(u.getNom(), u.getPrenom()));
