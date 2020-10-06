@@ -1,6 +1,7 @@
 <%@ page import="beans.Utilisateur" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
+<%@ page import="beans.Role" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -38,6 +39,10 @@
                                             <input type="text" class="form-control" id="prenomUtilisateurCreer" name="prenomUtilisateurCreer" required>
                                         </div>
                                         <div class="form-group">
+                                            <label for="mailUtilisateurCreer">Prénom</label>
+                                            <input type="email" class="form-control" id="mailUtilisateurCreer" name="mailUtilisateurCreer" required>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="adresseUtilisateurCreer">Adresse</label>
                                             <input type="text" class="form-control" id="adresseUtilisateurCreer" name="adresseUtilisateurCreer" required>
                                         </div>
@@ -56,10 +61,23 @@
                                             <label for="telUtilisateurCreer">Numéro de téléphone</label>
                                             <input type="text" class="form-control" id="telUtilisateurCreer" name="telUtilisateurCreer" required>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="roleUtilisateurCreer">Role</label>
+                                            <select id="roleUtilisateurCreer" name="roleUtilisateurCreer">
+                                                <%
+                                                    List<Role> listRoles = (ArrayList<Role>)request.getAttribute("roles");
+                                                    for (Role roles : listRoles) {
+                                                %>
+                                                <option style="white-space: pre" value=<%out.println(roles.getId_role());%>>
+                                                    <% out.println(roles.getLibelle_role().toUpperCase());%> </option>
+
+                                                <% } %>
+                                            </select>
+                                        </div>
                                     </div>
                                     <!-- Modal CREATE footer -->
                                     <div class="modal-footer">
-                                        <input type="submit" class="btn btn-success" name="submit" value="Créer"/>
+                                        <input type="submit" class="btn btn-success" name="creerUtilisateur" value="Créer"/>
                                     </div>
                                 </form>
                             </div>
@@ -72,10 +90,12 @@
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
+                        <th>Mail</th>
                         <th>Adresse</th>
                         <th>Ville</th>
                         <th>Code postal</th>
                         <th>Numéro de téléphone</th>
+                        <th>Role</th>
                         <th><div style="text-align: center">Actions</div></th>
                     </tr>
                     </thead>
@@ -87,13 +107,15 @@
                     <tr>
                         <td><% out.println(utilisateur.getNom().toUpperCase());%></td>
                         <td><% out.println(utilisateur.getPrenom().substring(0, 1).toUpperCase() + utilisateur.getPrenom().substring(1));%></td>
+                        <td><% out.println(utilisateur.getEmail());%></td>
                         <td><% out.println(utilisateur.getAdresse());%></td>
                         <td><% out.println(utilisateur.getVille());%></td>
                         <td><% out.println(utilisateur.getCode_postal());%></td>
                         <td><% out.println(utilisateur.getNum_telephone());%></td>
+                        <td><% out.println(utilisateur.getRole().getLibelle_role());%></td>
                         <td>
                             <div class="float-right">
-                                <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierUtilisateur" type="button" class="btn btn-warning" onclick="modifierUtilisateur('<%=utilisateur.getId_utilisateur()%>', '<%=utilisateur.getNom().toUpperCase()%>', '<%=utilisateur.getPrenom().substring(0, 1).toUpperCase() + utilisateur.getPrenom().substring(1)%>', '<%=utilisateur.getAdresse()%>', '<%=utilisateur.getVille()%>','<%=utilisateur.getCode_postal()%>', '<%=utilisateur.getNum_telephone()%>')" value="Modifier"/>
+                                <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierUtilisateur" type="button" class="btn btn-warning" onclick="modifierUtilisateur('<%=utilisateur.getId_utilisateur()%>', '<%=utilisateur.getNom().toUpperCase()%>', '<%=utilisateur.getPrenom().substring(0, 1).toUpperCase() + utilisateur.getPrenom().substring(1)%>', '<%=utilisateur.getEmail()%>','<%=utilisateur.getAdresse()%>', '<%=utilisateur.getVille()%>','<%=utilisateur.getCode_postal()%>', '<%=utilisateur.getNum_telephone()%>')" value="Modifier"/>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerUtilisateur<% out.print(utilisateur.getId_utilisateur());%>">Archiver</button>
 
                                 <div class="modal fade" id="supprimerUtilisateur<% out.print(utilisateur.getId_utilisateur());%>">
@@ -156,6 +178,10 @@
                                     <input type="text" class="form-control" id="prenomUtilisateurModifier" name="prenomUtilisateurModifier">
                                 </div>
                                 <div class="form-group">
+                                    <label for="mailUtilisateurModifier">Mail</label>
+                                    <input type="text" class="form-control" id="mailUtilisateurModifier" name="mailUtilisateurModifier">
+                                </div>
+                                <div class="form-group">
                                     <label for="adresseUtilisateurModifier">Adresse</label>
                                     <input type="text" class="form-control" id="adresseUtilisateurModifier" name="adresseUtilisateurModifier">
                                 </div>
@@ -174,7 +200,18 @@
                                     <label for="telUtilisateurModifier">Ville</label>
                                     <input type="text" class="form-control" id="telUtilisateurModifier" name="telUtilisateurModifier">
                                 </div>
+                                <div class="form-group">
+                                    <label for="roleUtilisateurModifier">Role</label>
+                                    <select id="roleUtilisateurModifier" name="roleUtilisateurModifier">
+                                        <%
+                                            for (Role roles : listRoles) {
+                                        %>
+                                        <option style="white-space: pre" value=<%out.println(roles.getId_role());%>>
+                                            <% out.println(roles.getLibelle_role().toUpperCase());%> </option>
 
+                                        <% } %>
+                                    </select>
+                                </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
                                     <input type="submit" class="btn btn-warning" name="submit" value="Modifier"/>
@@ -188,11 +225,12 @@
     </div>
 </main>
 <script>
-    function modifierUtilisateur(id_utilisateur, nom, prenom, adresse, ville, code_postal, tel){
+    function modifierUtilisateur(id_utilisateur, nom, prenom, mail, adresse, ville, code_postal, tel){
         //alert(id_classe+" "+nom_classe+" "+annee_classe+" "+id_niveau);
         $("#idUtilisateurModifier").attr('value', id_utilisateur);
         $("#nomUtilisateurModifier").attr('value', nom);
         $("#prenomUtilisateurModifier").attr('value', prenom);
+        $("#mailUtilisateurModifier").attr('value', adresse);
         $("#adresseUtilisateurModifier").attr('value', adresse);
         $("#villeUtilisateurModifier").attr('value', ville);
         $("#cpUtilisateurModifier").attr('value', code_postal);

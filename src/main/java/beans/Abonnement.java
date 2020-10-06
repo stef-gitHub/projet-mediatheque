@@ -1,5 +1,6 @@
 package beans;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Abonnement {
@@ -48,5 +49,15 @@ public class Abonnement {
 
     public void setDate_souscription(String date_souscription) {
         this.date_souscription = date_souscription;
+    }
+
+    public String creerNumABonne(String nom, String prenom){
+        String numAbonne;
+
+        SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyyHHmmss");
+        Date date = new Date();
+
+        numAbonne = nom.charAt(0)+""+prenom.charAt(0)+""+formatter.format(date);
+        return numAbonne;
     }
 }

@@ -10,8 +10,10 @@
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/ConnexionBDD.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Support.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Type.java
+/Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/LivreCreerServlet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/EmpruntServlet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/TypeDAO.java
+/Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/AuthentificationServlet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Emprunt.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/RoleDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/ConnexionServlet.java

@@ -24,8 +24,8 @@ public class UtilisateurDAO {
         ps.setString(7, utilisateur.getNum_telephone());
         ps.setString(8, utilisateur.getEmail());
         ps.setInt(9, utilisateur.isActif());
-        ps.setInt(10, utilisateur.getUnAbonnement().getId_abonnement());
-        ps.setInt(11, utilisateur.getId_role().getId_role());
+        ps.setInt(10, utilisateur.getAbonnement().getId_abonnement());
+        ps.setInt(11, utilisateur.getRole().getId_role());
 
         int n = ps.executeUpdate();
     }
@@ -44,8 +44,8 @@ public class UtilisateurDAO {
         ps.setString(7, utilisateur.getNum_telephone());
         ps.setString(8, utilisateur.getEmail());
         ps.setInt(9, utilisateur.isActif());
-        ps.setInt(10, utilisateur.getUnAbonnement().getId_abonnement());
-        ps.setInt(11, utilisateur.getId_role().getId_role());
+        ps.setInt(10, utilisateur.getAbonnement().getId_abonnement());
+        ps.setInt(11, utilisateur.getRole().getId_role());
         ps.setInt(12, utilisateur.getId_utilisateur());
 
         int n = ps.executeUpdate();
@@ -82,8 +82,8 @@ public class UtilisateurDAO {
             utilisateur.setNum_telephone(rs.getString("telephone"));
             utilisateur.setEmail(rs.getString("mail"));
             utilisateur.setActif(rs.getInt("actif"));
-            utilisateur.setUnAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
-            utilisateur.setId_role(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
+            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
             lu.add(utilisateur);
         }
@@ -112,8 +112,8 @@ public class UtilisateurDAO {
             utilisateur.setNum_telephone(rs.getString("telephone"));
             utilisateur.setEmail(rs.getString("mail"));
             utilisateur.setActif(rs.getInt("actif"));
-            utilisateur.setUnAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
-            utilisateur.setId_role(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
+            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
         }
  

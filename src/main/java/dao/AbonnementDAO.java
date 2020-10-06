@@ -61,7 +61,7 @@ public class AbonnementDAO {
 
         String query = "select * from abonnement where numero_abonne = ?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setString(1, utilisateur.getUnAbonnement().getNumero_abonne());
+        ps.setString(1, utilisateur.getAbonnement().getNumero_abonne());
         ResultSet rs = ps.executeQuery();
 
         ArrayList<Abonnement> la = new ArrayList();
