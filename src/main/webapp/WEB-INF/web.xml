@@ -18,6 +18,10 @@
     <servlet-class>servlet.ConnexionServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>DigitalServlet</servlet-name>
+    <servlet-class>servlet.DigitalSerlvet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>EmpruntServlet</servlet-name>
     <servlet-class>servlet.EmpruntServlet</servlet-class>
   </servlet>
@@ -41,18 +45,6 @@
     <servlet-name>UtilisateurCreerServlet</servlet-name>
     <servlet-class>servlet.UtilisateurCreerServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>CDServlet</servlet-name>
-    <servlet-class>servlet.CDSerlvet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>DVDServlet</servlet-name>
-    <servlet-class>servlet.DVDSerlvet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>livreNumeriqueServlet</servlet-name>
-    <servlet-class>servlet.livreNumeriqueSerlvet</servlet-class>
-  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -67,8 +59,8 @@
     <url-pattern>/connexion</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>CDServlet</servlet-name>
-    <url-pattern>/cd</url-pattern>
+    <servlet-name>DigitalServlet</servlet-name>
+    <url-pattern>/digital</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>EmpruntServlet</servlet-name>
@@ -93,13 +85,5 @@
   <servlet-mapping>
     <servlet-name>UtilisateurCreerServlet</servlet-name>
     <url-pattern>/creer_utilisateur</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>DVDServlet</servlet-name>
-    <url-pattern>/dvd</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>livreNumeriqueServlet</servlet-name>
-    <url-pattern>/livre_numerique</url-pattern>
   </servlet-mapping>
 </web-app>
