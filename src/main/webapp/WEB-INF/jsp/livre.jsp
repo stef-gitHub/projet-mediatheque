@@ -15,49 +15,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <br>
-                        <div class="float-right"> <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#creerLivre">Ajouter un livre</button>
 
-                            <!-- The Modal Classe CREATE -->
-                            <div class="modal fade" id="creerLivre">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form action="livre" method="post">
-                                            <!-- Modal CREATE Header -->
-                                            <div class="modal-header background-color-professeur">
-                                                <h4 class="modal-title text-color-items">Création d'un livre</h4>
-                                                <button type="button" class="close text-color-items" data-dismiss="modal">&times;</button>
-                                            </div>
-
-                                            <!-- Modal CREATE body -->
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="nomLivre">Nom du livre</label>
-                                                    <input type="text" class="form-control" id="nomLivre" name="nomLivre" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="nomAuteurLivre">Nom de l'auteur</label>
-                                                    <input type="text" class="form-control" id="nomAuteurLivre" name="nomAuteurLivre" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="dateLivre">Date</label>
-                                                    <input type="text" class="form-control" id="dateLivre" name="dateLivre" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="quantiteLivre">Quantité</label>
-                                                    <input type="text" class="form-control" id="quantiteLivre" name="quantiteLivre" required>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal CREATE footer -->
-                                            <div class="modal-footer">
-                                                <input type="submit" class="btn btn-success" name="submit" value="Créer"/>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <h2 class="text-center display-4 font-weight-light">Les livres</h2>
                         <table class="table">
                             <thead class="thead-dark">
