@@ -9,7 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 public class EmpruntDAO {
+
+    /**
+     * Affiche la liste des emprunts
+     * */
     public static ArrayList<Emprunt> afficherEmprunts() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Emprunt> emprunts = new ArrayList<>();
 

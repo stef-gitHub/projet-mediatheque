@@ -11,6 +11,10 @@ import java.util.Date;
 import java.sql.*;
 
 public class SupportDAO {
+
+    /**
+     *
+     * */
     public static ArrayList<Support> afficherSupports() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Support> supports = new ArrayList<>();
 
@@ -112,16 +116,17 @@ public class SupportDAO {
         preparedStatement.setInt(5, support.getType().getId_type());
 
         preparedStatement.executeUpdate();
-        System.out.println(support);
 
         ConnexionBDD.connexion().close();
     }
-
+/**
+ * Modifier un support
+ * */
     public static void modifierSupport(Support support) throws SQLException, IOException, ClassNotFoundException {
         PreparedStatement preparedStatement = null;
 
         System.out.println("Modifier Support");
-        preparedStatement = ConnexionBDD.connexion().prepareStatement("UPDATE support SET support.titre=?, support.auteur=?, support.date=?, support.quantite=?, support.id_type=?  where id_support=?;");
+        preparedStatement = ConnexionBDD.connexion().prepareStatement("UPDATE support SET support.titre=?, support.auteur=?, support.date=?, support.quantite=?, support.id_type=?  where support.id_support=?;");
         preparedStatement.setString(1, support.getTitre());
         preparedStatement.setString(2, support.getAuteur());
         preparedStatement.setString(3, support.getDate());

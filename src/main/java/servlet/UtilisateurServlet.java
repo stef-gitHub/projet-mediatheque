@@ -5,6 +5,7 @@ import beans.Role;
 import beans.Utilisateur;
 import dao.AbonnementDAO;
 import dao.RoleDAO;
+import dao.SupportDAO;
 import dao.UtilisateurDAO;
 
 import javax.servlet.ServletException;
@@ -23,6 +24,14 @@ public class UtilisateurServlet extends HttpServlet {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
         RoleDAO roleDAO = new RoleDAO();
         AbonnementDAO abonnementDAO = new AbonnementDAO();
+
+        try {
+            request.setAttribute("utilisateurs", UtilisateurDAO.afficherListeUtilisateur());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 /*
         try {
 

@@ -11,11 +11,10 @@ import java.util.ArrayList;
 public class UtilisateurDAO {
 
     public static void creerUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "insert into utilisateur(nom, prenom, mdp, adresse, ville, code_postal, telephone, " +
                 "mail, actif, id_abonnement, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setString(1, utilisateur.getNom());
         ps.setString(2, utilisateur.getPrenom());
         ps.setString(3, utilisateur.getMdp());
@@ -32,11 +31,10 @@ public class UtilisateurDAO {
     }
 
     public static void modifierUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "update utilisateur set nom = ?, prenom = ?, mdp = ?, adresse = ?, ville = ?, code_postal = ?, telephone = ?, " +
                 "mail = ?, actif = ?, id_abonnement = ?, id_role = ? where idClasse = ?";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setString(1, utilisateur.getNom());
         ps.setString(2, utilisateur.getPrenom());
         ps.setString(3, utilisateur.getMdp());
@@ -54,20 +52,18 @@ public class UtilisateurDAO {
     }
 
     public static void archiverUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "update utilisateur set actif = 0 where idClasse = ?";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setInt(1, utilisateur.getId_utilisateur());
 
         int n = ps.executeUpdate();
     }
 
     public static ArrayList<Utilisateur> afficherListeUtilisateur() throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "select * from utilisateur where actif = 1";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
 
         ResultSet rs = ps.executeQuery();
         ArrayList<Utilisateur> lu = new ArrayList();
@@ -96,10 +92,9 @@ public class UtilisateurDAO {
     }
 
     public static Utilisateur afficherUtilisateur(int id) throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "select * from utilisateur where id_utilisateur = ?";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
 

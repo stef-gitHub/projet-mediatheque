@@ -35,6 +35,14 @@
     <servlet-name>UtilisateurServlet</servlet-name>
     <servlet-class>servlet.UtilisateurServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LivreCreerServlet</servlet-name>
+    <servlet-class>servlet.LivreCreerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AuthentificationServlet</servlet-name>
+    <servlet-class>servlet.AuthentificationServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -42,7 +50,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AdministrateurServlet</servlet-name>
-    <url-pattern>/administrateur</url-pattern>
+    <url-pattern>/test</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ConnexionServlet</servlet-name>
@@ -63,5 +71,13 @@
   <servlet-mapping>
     <servlet-name>UtilisateurServlet</servlet-name>
     <url-pattern>/utilisateur</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LivreCreerServlet</servlet-name>
+    <url-pattern>/creer_livre</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AuthentificationServlet</servlet-name>
+    <url-pattern>/authentification</url-pattern>
   </servlet-mapping>
 </web-app>
