@@ -6,11 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AccueilServlet extends HttpServlet {
+public class SiteAccueilAdministrateurServlet extends HttpServlet {
 
         public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/accueil.jsp" ).forward( request, response );
+            this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/siteAccueilAdministrateur.jsp" ).forward( request, response );
         }
 }
 

@@ -1,7 +1,6 @@
 package dao;
 
 import beans.ConnexionBDD;
-import beans.Support;
 import beans.Utilisateur;
 
 import java.io.IOException;
@@ -18,9 +17,9 @@ public class AuthentificationDAO {
         ps.setString(2, utilisateur.getMdp());
         ResultSet rs = ps.executeQuery();
 
-        if( rs != null ){
+        if(rs.next()){
             Utilisateur u = new Utilisateur();
-            u.setId_role(RoleDAO.afficherRole(rs.getInt("id_role")));
+            u.setRole(RoleDAO.afficherRole(rs.getInt("id_role")));
             u = UtilisateurDAO.afficherUtilisateur(rs.getInt("id_utilisateur"));
             return u;
         }

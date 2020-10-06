@@ -18,7 +18,7 @@ public class AuthentificationServlet extends HttpServlet {
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/authentification.jsp" ).forward( request, response );
     }
     /**
-     * Pour simuler une interface de connexion sans BDD
+     * Connexion
      */
     public void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
@@ -34,20 +34,18 @@ public class AuthentificationServlet extends HttpServlet {
             utilisateur.setMdp(mdp);
             try {
                 utilisateur = AuthentificationDAO.SeConnecter(utilisateur);
-            } catch (SQLException throwables) {
+            } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
-            if (utilisateur.getId_role() != null){
+            if (utilisateur.getRole() != null){
 
-                if(utilisateur.getId_role().getId_role() == 1){
+                if(utilisateur.getRole().getId_role() == 1){
                     session.setAttribute("login", login);
-                    response.sendRedirect("accueil");
+                    response.sendRedirect("accueil_administrateur");
                 }
                 else {
                     session.setAttribute("login", login);
-                    response.sendRedirect("livre");
+                    response.sendRedirect("accueil_utilisateur");
                 }
             }
             else{

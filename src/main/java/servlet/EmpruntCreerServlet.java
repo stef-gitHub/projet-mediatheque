@@ -1,11 +1,5 @@
 package servlet;
 
-<<<<<<< HEAD
-import javax.servlet.http.HttpServlet;
-
-public class EmpruntCreerServlet extends HttpServlet {
-}
-=======
 import beans.Support;
 import dao.SupportDAO;
 import dao.TypeDAO;
@@ -41,4 +35,3 @@ public class EmpruntCreerServlet extends HttpServlet{
         }
     }
 }
->>>>>>> 12fe7c227db510602ccee9767e69cad26c5816e6
