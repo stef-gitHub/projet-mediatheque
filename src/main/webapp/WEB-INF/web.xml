@@ -41,6 +41,10 @@
     <servlet-name>AuthentificationServlet</servlet-name>
     <servlet-class>servlet.AuthentificationServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UtilisateurCreerServlet</servlet-name>
+    <servlet-class>servlet.UtilisateurCreerServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -77,5 +81,9 @@
   <servlet-mapping>
     <servlet-name>AuthentificationServlet</servlet-name>
     <url-pattern>/authentification</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UtilisateurCreerServlet</servlet-name>
+    <url-pattern>/creer_utilisateur</url-pattern>
   </servlet-mapping>
 </web-app>

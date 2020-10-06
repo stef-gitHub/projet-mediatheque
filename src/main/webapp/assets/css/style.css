@@ -30,7 +30,7 @@
     #sidebar .list-group {
         min-width: 400px;
         background-color: #563d7c;
-        min-height: 100vh;
+        min-height: 150vh;
     }
     #sidebar i {
         margin-right: 6px;
