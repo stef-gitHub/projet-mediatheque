@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/LivreSerlvet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/AbonnementDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Utilisateur.java
@@ -19,25 +18,3 @@
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/UtilisateurDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/EmpruntDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Role.java
-=======
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\AdministrateurServlet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\DigitalSerlvet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\ConnexionBDD.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\SupportDAO.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\UtilisateurDAO.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\EmpruntDAO.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Role.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\AbonnementDAO.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\LivreSerlvet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Abonnement.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Support.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\RoleDAO.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\EmpruntServlet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Emprunt.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\AccueilServlet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\UtilisateurServlet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Type.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\ConnexionServlet.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Utilisateur.java
-C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\TypeDAO.java
->>>>>>> aa90023cd9c49b34fec0543c4114f54a2c173c07
