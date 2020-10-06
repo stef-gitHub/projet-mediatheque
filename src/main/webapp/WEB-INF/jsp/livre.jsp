@@ -117,7 +117,7 @@
                                                         for (Type type : listeTypes) {
                                                     %>
                                                     <option style="white-space: pre" value=<%out.println(type.getId_type());%>>
-                                                        <% out.println(type.getLibelle_type());%></option>
+                                                        <% out.println(type.getLibelle_type());%> </option>
                                                     <% } %>
                                                 </select>
                                             </div>

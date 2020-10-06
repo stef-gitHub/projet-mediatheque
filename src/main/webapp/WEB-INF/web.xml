@@ -45,6 +45,14 @@
     <servlet-name>UtilisateurCreerServlet</servlet-name>
     <servlet-class>servlet.UtilisateurCreerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DvdCreerServlet</servlet-name>
+    <servlet-class>servlet.DvdCreerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CdCreerServlet</servlet-name>
+    <servlet-class>servlet.CdCreerServlet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -85,5 +93,13 @@
   <servlet-mapping>
     <servlet-name>UtilisateurCreerServlet</servlet-name>
     <url-pattern>/creer_utilisateur</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DvdCreerServlet</servlet-name>
+    <url-pattern>/creer_dvd</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CdCreerServlet</servlet-name>
+    <url-pattern>/creer_cd</url-pattern>
   </servlet-mapping>
 </web-app>

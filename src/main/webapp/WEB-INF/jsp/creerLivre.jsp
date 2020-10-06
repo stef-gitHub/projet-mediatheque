@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="creerAuteurLivre">Auteur</label>
-            <input type="text" class="form-control" id="creerAuteurLivre" placeholder="Auteur" name="creerAuteurLivre" required>
+            <input type="text" class="form-control" id="creerAuteurLivre" placeholder="ex : Charles Beaudelaire" name="creerAuteurLivre" required>
             <div class="valid-feedback">Valide</div>
             <div class="invalid-feedback">Entrez un auteur valide</div>
         </div>
@@ -26,13 +26,13 @@
             <label for="creerAnneeLivre">Année</label>
             <input type="text" class="form-control" id="creerAnneeLivre" placeholder="Année de parution" name="creerAnneeLivre" required>
             <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez une date valide</div>
+            <div class="invalid-feedback">Entrez l'année de parution</div>
         </div>
         <div class="form-group">
             <label for="creerQuantiteLivre">Quantité</label>
-            <input type="number" class="form-control" id="creerQuantiteLivre" placeholder="Année de parution" name="creerQuantiteLivre" required>
+            <input type="number" class="form-control" id="creerQuantiteLivre" placeholder="ex : 10" name="creerQuantiteLivre" required>
             <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez une quantité valide</div>
+            <div class="invalid-feedback">Entrez une quantité</div>
         </div>
 
         <button type="submit" class="btn btn-primary">Créer</button>
