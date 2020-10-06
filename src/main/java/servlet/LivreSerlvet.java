@@ -41,6 +41,10 @@ public class LivreSerlvet extends HttpServlet {
             support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeLivre"))));
             SupportDAO.modifierSupport(support);
 
+        }else if(request.getParameter("supprimerLivre") != null){
+            Support support = new Support();
+            support.setId_support(Integer.parseInt(request.getParameter("idLivre")));
+            SupportDAO.archiverSupport(support);
         }
         response.sendRedirect("livre");
         } catch (SQLException | ClassNotFoundException throwables) {

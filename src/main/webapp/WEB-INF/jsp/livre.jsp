@@ -15,49 +15,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <br>
-                        <div class="float-right"> <!-- Button to Open the Modal -->
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#creerLivre">Ajouter un livre</button>
 
-                            <!-- The Modal Classe CREATE -->
-                            <div class="modal fade" id="creerLivre">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form action="livre" method="post">
-                                            <!-- Modal CREATE Header -->
-                                            <div class="modal-header background-color-professeur">
-                                                <h4 class="modal-title text-color-items">Création d'un livre</h4>
-                                                <button type="button" class="close text-color-items" data-dismiss="modal">&times;</button>
-                                            </div>
-
-                                            <!-- Modal CREATE body -->
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="nomLivre">Nom du livre</label>
-                                                    <input type="text" class="form-control" id="nomLivre" name="nomLivre" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="nomAuteurLivre">Nom de l'auteur</label>
-                                                    <input type="text" class="form-control" id="nomAuteurLivre" name="nomAuteurLivre" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="dateLivre">Date</label>
-                                                    <input type="text" class="form-control" id="dateLivre" name="dateLivre" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="quantiteLivre">Quantité</label>
-                                                    <input type="text" class="form-control" id="quantiteLivre" name="quantiteLivre" required>
-                                                </div>
-                                            </div>
-
-                                            <!-- Modal CREATE footer -->
-                                            <div class="modal-footer">
-                                                <input type="submit" class="btn btn-success" name="submit" value="Créer"/>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <h2 class="text-center display-4 font-weight-light">Les livres</h2>
                         <table class="table">
                             <thead class="thead-dark">
@@ -84,9 +42,9 @@
                                 <td>
                                     <div class="float-right">
                                         <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivre" type="button" class="btn btn-warning" onclick="modifier('<% out.print(supportLivres.getId_support());%>', '<% out.print(supportLivres.getTitre());%>', '<% out.print(supportLivres.getAuteur());%>', '<% out.print(supportLivres.getDate());%>', '<% out.print(supportLivres.getQuantite());%>', '<% out.print(supportLivres.getType().getId_type());%>')" value="Modifier"/>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerLivre<% // out.print(classe.getId_classe());%>">Archiver</button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerLivre<%out.print(supportLivres.getId_support());%>">Archiver</button>
                                         <!-- The Modal Professor DELETE -->
-                                        <div class="modal fade" id="supprimerLivre<% // out.print(livre.getId_livre());%>">
+                                        <div class="modal fade" id="supprimerLivre<% out.print(supportLivres.getId_support());%>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -99,14 +57,14 @@
                                                     <!-- Modal DELETE body -->
                                                     <div class="modal-body text-center">
                                                         <p>Etes-vous sûr de vouloir archiver ce livre :</p>
-                                                        <p><span style="font-weight: bold; font-size: 20px"><% // out.print(livre.getTitre());%>  </span>? </p>
+                                                        <p><span style="font-weight: bold; font-size: 20px"><% out.print(supportLivres.getTitre());%>  </span>? </p>
                                                     </div>
 
                                                     <!-- Modal DELETE footer -->
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-success mr-auto" data-dismiss="modal">Annuler</button>
                                                         <form class="float-right" action="livre" method="post">
-                                                            <input hidden type="text" name="idLivre" value="<% // out.print(livre.getId_livre());%>"/>
+                                                            <input hidden type="text" name="idLivre" value="<% out.print(supportLivres.getId_support());%>"/>
                                                             <input type="submit" class="btn btn-danger" name="supprimerLivre" value="Archiver"/>
                                                         </form>
                                                     </div>
