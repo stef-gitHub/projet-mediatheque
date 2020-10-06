@@ -49,6 +49,10 @@
     <servlet-name>DVDServlet</servlet-name>
     <servlet-class>servlet.DVDSerlvet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>livreNumeriqueServlet</servlet-name>
+    <servlet-class>servlet.livreNumeriqueSerlvet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -93,5 +97,9 @@
   <servlet-mapping>
     <servlet-name>DVDServlet</servlet-name>
     <url-pattern>/dvd</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>livreNumeriqueServlet</servlet-name>
+    <url-pattern>/livre_numerique</url-pattern>
   </servlet-mapping>
 </web-app>
