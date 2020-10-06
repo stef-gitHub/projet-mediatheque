@@ -65,6 +65,14 @@
     <servlet-name>SiteAccueilServlet</servlet-name>
     <servlet-class>servlet.SiteAccueilServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LivreNumeriqueCreerServlet</servlet-name>
+    <servlet-class>servlet.LivreNumeriqueCreerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LivreNumeriqueServlet</servlet-name>
+    <servlet-class>servlet.livreNumeriqueSerlvet</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
@@ -103,6 +111,11 @@
     <servlet-name>DVDServlet</servlet-name>
     <url-pattern>/dvd</url-pattern>
   </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LivreNumeriqueServlet</servlet-name>
+    <url-pattern>/livre_numerique</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>DvdCreerServlet</servlet-name>
     <url-pattern>/creer_dvd</url-pattern>
@@ -126,5 +139,10 @@
   <servlet-mapping>
     <servlet-name>EmpruntCreerServlet</servlet-name>
     <url-pattern>/creer_emprunt</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LivreNumeriqueCreerServlet</servlet-name>
+    <url-pattern>/creer_livre_numerique</url-pattern>
   </servlet-mapping>
 </web-app>

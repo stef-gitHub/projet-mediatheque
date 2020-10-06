@@ -1,5 +1,6 @@
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\livreNumeriqueSerlvet.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\CdCreerServlet.java
+C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\EmpruntCreerServlet.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\EmpruntDAO.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\AbonnementDAO.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Abonnement.java
@@ -11,6 +12,7 @@ C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\Authentif
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\AccueilServlet.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\Type.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\ConnexionServlet.java
+C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\LivreNumeriqueCreerServlet.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\dao\TypeDAO.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\servlet\AdministrateurServlet.java
 C:\Users\Meunier\IdeaProjects\projet-mediatheque\src\main\java\beans\ConnexionBDD.java
