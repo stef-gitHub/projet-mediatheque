@@ -60,7 +60,7 @@ public class SupportDAO {
     public static ArrayList<Support> afficherSupportsFiltres(int idType) throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Support> supports = new ArrayList<>();
 
-        String query = "SELECT * FROM support inner join type on support.id_type = type.id_type where support.id_type = " + idType;
+        String query = "SELECT * FROM support inner join type on support.id_type = type.id_type where support.id_type = " + idType +" and support.actif = 1";
 
         System.out.println(query);
 
@@ -137,7 +137,13 @@ public class SupportDAO {
         ConnexionBDD.connexion().close();
     }
 
-    public static void archiverSupport(Support Support) throws SQLException, IOException, ClassNotFoundException {
-        ConnexionBDD.connexion();
+    public static void archiverSupport(Support support) throws SQLException, IOException, ClassNotFoundException {
+        PreparedStatement preparedStatement = null;
+
+        System.out.println("Archiver Support");
+        preparedStatement = ConnexionBDD.connexion().prepareStatement("UPDATE support SET support.actif = 0  where support.id_support=?;");
+        preparedStatement.setInt(1, support.getId_support());
+        preparedStatement.executeUpdate();
+        ConnexionBDD.connexion().close();
     }
 }

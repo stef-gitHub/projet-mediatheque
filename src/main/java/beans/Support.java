@@ -9,6 +9,7 @@ public class Support {
     private String date;
     private int quantite;
     private Type type;
+    private int actif;
 
     public Support() {
     }
@@ -26,6 +27,15 @@ public class Support {
         this.date = date;
         this.quantite = quantite;
         this.type = type;
+    }
+
+    public Support(String titre, String auteur, String date, int quantite, Type type, int actif) {
+        this.titre = titre;
+        this.auteur = auteur;
+        this.date = date;
+        this.quantite = quantite;
+        this.type = type;
+        this.actif = actif;
     }
 
     public int getId_support() {
@@ -74,5 +84,13 @@ public class Support {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public int getActif() {
+        return actif;
+    }
+
+    public void setActif(int actif) {
+        this.actif = actif;
     }
 }

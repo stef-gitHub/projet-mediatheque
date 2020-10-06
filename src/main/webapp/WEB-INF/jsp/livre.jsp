@@ -84,9 +84,9 @@
                                 <td>
                                     <div class="float-right">
                                         <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivre" type="button" class="btn btn-warning" onclick="modifier('<% out.print(supportLivres.getId_support());%>', '<% out.print(supportLivres.getTitre());%>', '<% out.print(supportLivres.getAuteur());%>', '<% out.print(supportLivres.getDate());%>', '<% out.print(supportLivres.getQuantite());%>', '<% out.print(supportLivres.getType().getId_type());%>')" value="Modifier"/>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerLivre<% // out.print(classe.getId_classe());%>">Archiver</button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerLivre<%out.print(supportLivres.getId_support());%>">Archiver</button>
                                         <!-- The Modal Professor DELETE -->
-                                        <div class="modal fade" id="supprimerLivre<% // out.print(livre.getId_livre());%>">
+                                        <div class="modal fade" id="supprimerLivre<% out.print(supportLivres.getId_support());%>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -99,14 +99,14 @@
                                                     <!-- Modal DELETE body -->
                                                     <div class="modal-body text-center">
                                                         <p>Etes-vous sûr de vouloir archiver ce livre :</p>
-                                                        <p><span style="font-weight: bold; font-size: 20px"><% // out.print(livre.getTitre());%>  </span>? </p>
+                                                        <p><span style="font-weight: bold; font-size: 20px"><% out.print(supportLivres.getTitre());%>  </span>? </p>
                                                     </div>
 
                                                     <!-- Modal DELETE footer -->
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-success mr-auto" data-dismiss="modal">Annuler</button>
                                                         <form class="float-right" action="livre" method="post">
-                                                            <input hidden type="text" name="idLivre" value="<% // out.print(livre.getId_livre());%>"/>
+                                                            <input hidden type="text" name="idLivre" value="<% out.print(supportLivres.getId_support());%>"/>
                                                             <input type="submit" class="btn btn-danger" name="supprimerLivre" value="Archiver"/>
                                                         </form>
                                                     </div>
