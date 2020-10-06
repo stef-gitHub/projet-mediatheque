@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 public class SiteAccueilServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/accueil.jsp" ).forward( request, response );
     }
 }

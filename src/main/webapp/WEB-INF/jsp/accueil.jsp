@@ -50,7 +50,6 @@
             <div>
                 <h1>Site vitrine</h1>
             </div>
-
         </main>
     </div>
 </div>

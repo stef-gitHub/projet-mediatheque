@@ -12,9 +12,8 @@ import java.sql.*;
 
 public class SupportDAO {
 
-    /**
-     *
-     * */
+
+    // Modifier tous les supports ( livre, livre numérique, dvd , cd)
     public static ArrayList<Support> afficherSupports() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Support> supports = new ArrayList<>();
 
@@ -57,6 +56,7 @@ public class SupportDAO {
         return supports;
     }
 
+    // Modifier tous les supports ( livre, livre numérique, dvd , cd) avec des filtres
     public static ArrayList<Support> afficherSupportsFiltres(int idType) throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Support> supports = new ArrayList<>();
 
@@ -120,9 +120,8 @@ public class SupportDAO {
 
         ConnexionBDD.connexion().close();
     }
-/**
- * Modifier un support
- * */
+
+    // Modifier un support ( livre, livre numérique, dvd , cd)
     public static void modifierSupport(Support support) throws SQLException, IOException, ClassNotFoundException {
         PreparedStatement preparedStatement = null;
 
@@ -138,6 +137,7 @@ public class SupportDAO {
         ConnexionBDD.connexion().close();
     }
 
+    // Archiver un support ( livre, livre numérique, dvd , cd)
     public static void archiverSupport(Support support) throws SQLException, IOException, ClassNotFoundException {
         PreparedStatement preparedStatement = null;
 

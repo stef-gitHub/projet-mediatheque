@@ -32,23 +32,24 @@ public class DVDSerlvet extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 
         try {
+            // Modifier un DVD via le formulaire dans la vue dvd.jsp
+            if(request.getParameter("modifierNomDVD") != null) {
+                System.out.println("test");
+                Support support = new Support();
+                support.setId_support(Integer.parseInt(request.getParameter("idDVDModifier")));;
+                support.setTitre(request.getParameter("modifierNomDVD"));
+                support.setAuteur(request.getParameter("modifierAuteurDVD"));
+                support.setDate(request.getParameter("modifierAnneeDVD"));
+                support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteDVD")));
+                support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeDVD"))));
+                SupportDAO.modifierSupport(support);
 
-        if(request.getParameter("modifierNomDVD") != null) {
-            System.out.println("test");
-            Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idDVDModifier")));;
-            support.setTitre(request.getParameter("modifierNomDVD"));
-            support.setAuteur(request.getParameter("modifierAuteurDVD"));
-            support.setDate(request.getParameter("modifierAnneeDVD"));
-            support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteDVD")));
-            support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeDVD"))));
-            SupportDAO.modifierSupport(support);
-
-        }else if(request.getParameter("supprimerDVD") != null){
-            Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idDVD")));
-            SupportDAO.archiverSupport(support);
-        }
+                // Archiver un DVD via le formulaire dans la vue dvd.jsp
+            }else if(request.getParameter("supprimerDVD") != null){
+                Support support = new Support();
+                support.setId_support(Integer.parseInt(request.getParameter("idDVD")));
+                SupportDAO.archiverSupport(support);
+            }
         response.sendRedirect("dvd");
         } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();

@@ -16,23 +16,20 @@ import java.util.Date;
 
 public class UtilisateurCreerServlet  extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RoleDAO roleDAO = new RoleDAO();
 
         try {
-            request.setAttribute("roles", roleDAO.afficherRole());
-        } catch (SQLException throwables) {
+            request.setAttribute("roles", RoleDAO.afficherRole());
+        } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerUtilisateur.jsp" ).forward( request, response );
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-        RoleDAO roleDAO = new RoleDAO();
-        UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
 
         try {
+
+            // Créer un utilisateur via le formulaure dans creerUtilisateur.jsp
             if(request.getParameter("creerUtilisateur") != null) {
 
                 Utilisateur u = new Utilisateur();
@@ -54,9 +51,9 @@ public class UtilisateurCreerServlet  extends HttpServlet {
                 a.setDate_souscription(formatter.format(date));
 
                 u.setAbonnement(a);
-                u.setRole(roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
+                u.setRole(RoleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
 
-                utilisateurDAO.creerUtilisateur(u);
+                UtilisateurDAO.creerUtilisateur(u);
 
             }
         } catch (SQLException | ClassNotFoundException throwables) {

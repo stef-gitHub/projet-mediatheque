@@ -11,7 +11,7 @@
                 <a href="#menuAbonne" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-id-card"></i>
                     <span class="d-none d-md-inline">Abonné<i class="ml-1 fas fa-caret-down"></i></span></a>
                 <div style="margin-bottom: 1px;" class="collapse" id="menuAbonne" data-parent="#sidebar">
-                    <a href="#" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
+                    <a href="creer_utilisateur" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
                     <a href="utilisateur" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
                 </div>
                 <!-- Livre -->
@@ -59,7 +59,7 @@
             <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
                 <div class="col-md-12 text-center">
                     <hr>
-                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="text-white fas fa-user"></i></span></h2>
+                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i id ="logo-connexion" class="text-white fas fa-user"></i></span></h2>
                     <hr>
                 </div>
             </div>

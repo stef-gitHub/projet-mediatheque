@@ -18,6 +18,7 @@ public class EmpruntCreerServlet extends HttpServlet{
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerEmprunt.jsp" ).forward( request, response );
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
+
         try {
             if(request.getParameter("creerTitreLivre") != null) {
                 Support support = new Support();

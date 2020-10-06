@@ -1,3 +1,4 @@
+<%@ page import="beans.Utilisateur" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -5,10 +6,9 @@
 </head>
 <%@include file="navbar.jsp" %>
 
-            <!-- Informations et texte-->
             <div class="row">
                 <div class="col-md-12 ">
-                    <h2 class="text-center display-4 font-weight-light">Tableau de bord</h2>
+                    <h2 class="text-center display-4 font-weight-light">Tableau de bord </h2>
                     <p class="lead text-center ">Voici la synthèse des flux et activités de votre médiathèque</p>
                 </div>
             </div>
@@ -74,6 +74,8 @@
     </div>
 </div>
 <script>
+    let test = document.getElementById('logo-connexion');
+    test.style.display = 'none';
 </script>
 </body>
 </html>

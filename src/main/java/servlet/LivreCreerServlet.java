@@ -18,7 +18,9 @@ public class LivreCreerServlet extends HttpServlet{
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerLivre.jsp" ).forward( request, response );
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-        try {
+
+        try{
+            // Créer un livre via le formulaire dans la vue creerLivre.jsp
             if(request.getParameter("creerTitreLivre") != null) {
                 Support support = new Support();
                 support.setTitre(request.getParameter("creerTitreLivre"));

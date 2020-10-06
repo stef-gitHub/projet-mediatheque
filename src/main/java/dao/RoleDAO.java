@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class RoleDAO {
 
+    // Afficher le role d'un utilisateur par son id
     public static Role afficherRole(int id) throws SQLException, IOException, ClassNotFoundException {
         Connection con = ConnexionBDD.connexion();
 
@@ -31,6 +32,7 @@ public class RoleDAO {
         return role;
     }
 
+    // Afficher tous les rôles
     public static ArrayList<Role> afficherRole() throws SQLException, IOException, ClassNotFoundException {
         Connection con = ConnexionBDD.connexion();
 

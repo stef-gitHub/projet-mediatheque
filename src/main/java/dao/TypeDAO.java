@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class TypeDAO {
+
+    // Afficher tous les types de supports ( livre, livre numérique, dvd , cd)
     public static ArrayList<Type> afficherType() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Type> types = new ArrayList<>();
 
@@ -41,6 +43,7 @@ public class TypeDAO {
         return types;
     }
 
+    // Récupérer un type par son id
     public static Type getTypeById(int id) throws SQLException, IOException, ClassNotFoundException {
         Type type = new Type();
 

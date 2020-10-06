@@ -19,6 +19,7 @@ public class DvdCreerServlet extends HttpServlet {
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
         try {
+            // Créer un DVD via le formulaire dans la vue creerDVD.jsp
             if(request.getParameter("creerTitreDvd") != null) {
                 Support support = new Support();
                 support.setTitre(request.getParameter("creerTitreDvd"));

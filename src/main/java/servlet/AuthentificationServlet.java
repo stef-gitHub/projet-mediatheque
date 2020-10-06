@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 public class AuthentificationServlet extends HttpServlet {
 
@@ -18,13 +18,14 @@ public class AuthentificationServlet extends HttpServlet {
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/authentification.jsp" ).forward( request, response );
     }
     /**
-     * Connexion
+     * Connexion avec son login et mdp
      */
     public void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
         Utilisateur utilisateur = new Utilisateur();
+
+        int admin = 1;
 
         if (request.getParameter("login") != null){
 
@@ -32,23 +33,25 @@ public class AuthentificationServlet extends HttpServlet {
             String mdp  = request.getParameter("mdp");
             utilisateur.setEmail(login);
             utilisateur.setMdp(mdp);
+
+            // check login et mdp
             try {
                 utilisateur = AuthentificationDAO.SeConnecter(utilisateur);
             } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
             }
-            if (utilisateur.getRole() != null){
 
-                if(utilisateur.getRole().getId_role() == 1){
-                    session.setAttribute("login", login);
+            if (utilisateur.getRole() != null){
+                // redirige sur la page admin si c est un admin
+                if(utilisateur.getRole().getId_role() == admin){
                     response.sendRedirect("accueil_administrateur");
                 }
+                // redirige sur la page utilisateur
                 else {
-                    session.setAttribute("login", login);
                     response.sendRedirect("accueil_utilisateur");
                 }
             }
-            else{
+            else {
                 response.sendRedirect("authentification");
                 System.out.println("login et/ou mot de passe invalide");
             }
