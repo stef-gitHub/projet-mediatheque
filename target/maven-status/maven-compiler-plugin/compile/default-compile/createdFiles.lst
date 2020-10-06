@@ -1,3 +1,4 @@
+servlet/UtilisateurCreerServlet.class
 dao/TypeDAO.class
 beans/Type.class
 dao/AbonnementDAO.class

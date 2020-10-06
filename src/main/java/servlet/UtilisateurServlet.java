@@ -41,33 +41,58 @@ public class UtilisateurServlet extends HttpServlet {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
         RoleDAO roleDAO = new RoleDAO();
         AbonnementDAO abonnementDAO = new AbonnementDAO();
-        /*
 
         try {
             if(request.getParameter("creerUtilisateur") != null) {
+
                 Utilisateur u = new Utilisateur();
-                u.setNom(request.getParameter("creerTitreLivre"));
-                u.setPrenom(request.getParameter("creerTitreLivre"));
-                u.setMdp(request.getParameter("creerTitreLivre"));
-                u.setAdresse(request.getParameter("creerTitreLivre"));
-                u.setVille(request.getParameter("creerTitreLivre"));
-                u.setCode_postal(request.getParameter("creerTitreLivre"));
-                u.setNum_telephone(request.getParameter("creerTitreLivre"))
-                u.setEmail(request.getParameter("creerTitreLivre"));
+                u.setNom(request.getParameter("nomUtilisateurCreer"));
+                u.setPrenom(request.getParameter("prenomUtilisateurCreer"));
+                u.setMdp(request.getParameter("creerMdpUtilisateur"));
+                u.setAdresse(request.getParameter("adresseUtilisateurCreer"));
+                u.setVille(request.getParameter("villeEleveCreate"));
+                u.setCode_postal(Integer.parseInt(request.getParameter("cpUtilisateurCreer")));
+                u.setNum_telephone(request.getParameter("telUtilisateurCreer"));
+                u.setEmail(request.getParameter("mailUtilisateurCreer"));
 
                 Abonnement a = new Abonnement();
                 a.setNumero_abonne(a.creerNumABonne(u.getNom(), u.getPrenom()));
                 a.setPenalite(0);
-                SimpleDateFormat formatter = new SimpleDateFormat("ddMMyyyy");
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 Date date = new Date();
                 a.setDate_souscription(formatter.format(date));
 
-                u.setAbonnement();
-                u.setRole(roleDAO.afficherRole(request.getParameter("creerTitreLivre")));
+                u.setAbonnement(a);
+                u.setRole(roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
+
+                utilisateurDAO.creerUtilisateur(u);
+
+            }else if(request.getParameter("archiverUtilisateur") != null){
+
+                utilisateurDAO.archiverUtilisateur(Integer.parseInt(request.getParameter("idUtilisateur")));
+
+            }else if(request.getParameter("modifierUtilisateur") != null){
+
+                Utilisateur u = utilisateurDAO.afficherUtilisateur(Integer.parseInt(request.getParameter("idUtilisateurModifier")));
+
+                u.setNom(request.getParameter("nomUtilisateurModifier"));
+                u.setPrenom(request.getParameter("prenomUtilisateurModifier"));
+                if(request.getParameter("mdpUtilisateurModifier") != ""){
+                    u.setMdp(request.getParameter("mdpUtilisateurModifier"));
+                }
+                u.setAdresse(request.getParameter("adresseUtilisateurModifier"));
+                u.setVille(request.getParameter("villeUtilisateurModifier"));
+                u.setCode_postal(Integer.parseInt(request.getParameter("cpUtilisateurModifier")));
+                u.setNum_telephone(request.getParameter("telUtilisateurModifier"));
+                u.setEmail(request.getParameter("mailUtilisateurModifier"));
+                Role r = roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurModifier")));
+                u.setRole(r);
+
+                utilisateurDAO.modifierUtilisateur(u);
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
-        }*/
+        }
         response.sendRedirect("utilisateur");
     }
 }

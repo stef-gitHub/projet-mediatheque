@@ -2,7 +2,6 @@
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/AbonnementDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Utilisateur.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/AdministrateurServlet.java
-/Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/DigitalSerlvet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/SupportDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/UtilisateurServlet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Abonnement.java
@@ -15,6 +14,8 @@
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/TypeDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/AuthentificationServlet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/beans/Emprunt.java
+/Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/UtilisateurCreerServlet.java
+/Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/CDSerlvet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/RoleDAO.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/servlet/ConnexionServlet.java
 /Users/aymanagharbi/IdeaProjects/projet-mediatheque/src/main/java/dao/UtilisateurDAO.java

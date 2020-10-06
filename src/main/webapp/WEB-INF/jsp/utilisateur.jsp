@@ -1,7 +1,12 @@
 <%@ page import="beans.Utilisateur" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
 <%@ page import="beans.Role" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.util.concurrent.atomic.DoubleAccumulator" %>
+<%@ page import="java.time.ZoneId" %>
+<%@ page import="java.time.temporal.TemporalAccessor" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -39,7 +44,7 @@
                                             <input type="text" class="form-control" id="prenomUtilisateurCreer" name="prenomUtilisateurCreer" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="mailUtilisateurCreer">Prénom</label>
+                                            <label for="mailUtilisateurCreer">Mail</label>
                                             <input type="email" class="form-control" id="mailUtilisateurCreer" name="mailUtilisateurCreer" required>
                                         </div>
                                         <div class="form-group">
@@ -60,6 +65,12 @@
                                         <div class="form-group">
                                             <label for="telUtilisateurCreer">Numéro de téléphone</label>
                                             <input type="text" class="form-control" id="telUtilisateurCreer" name="telUtilisateurCreer" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="creerMdpUtilisateur">Mot de passe</label>
+                                            <input type="password" class="form-control" id="creerMdpUtilisateur" placeholder="votre mot de passe" name="creerMdpUtilisateur" required>
+                                            <div class="valid-feedback">Valide</div>
+                                            <div class="invalid-feedback">Entrez un mot de passe d'au moins 8 caractères dont 1 majuscule, 1 chiffre, 1 caractère spécial (@?!#$)</div>
                                         </div>
                                         <div class="form-group">
                                             <label for="roleUtilisateurCreer">Role</label>
@@ -90,11 +101,8 @@
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
-                        <th>Mail</th>
-                        <th>Adresse</th>
-                        <th>Ville</th>
-                        <th>Code postal</th>
-                        <th>Numéro de téléphone</th>
+                        <th>Numero abonné</th>
+                        <th>Date de fin d'abonnement</th>
                         <th>Role</th>
                         <th><div style="text-align: center">Actions</div></th>
                     </tr>
@@ -107,15 +115,25 @@
                     <tr>
                         <td><% out.println(utilisateur.getNom().toUpperCase());%></td>
                         <td><% out.println(utilisateur.getPrenom().substring(0, 1).toUpperCase() + utilisateur.getPrenom().substring(1));%></td>
-                        <td><% out.println(utilisateur.getEmail());%></td>
-                        <td><% out.println(utilisateur.getAdresse());%></td>
-                        <td><% out.println(utilisateur.getVille());%></td>
-                        <td><% out.println(utilisateur.getCode_postal());%></td>
-                        <td><% out.println(utilisateur.getNum_telephone());%></td>
+                        <td><% out.println(utilisateur.getAbonnement().getNumero_abonne());%></td>
+                        <td><%
+                            String string = utilisateur.getAbonnement().getDate_souscription();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH);
+                            LocalDate date = LocalDate.parse(string, formatter);
+                            ZoneId defaultZoneId = ZoneId.systemDefault();
+                            Date date2 = Date.from(date.atStartOfDay(defaultZoneId).toInstant());
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTime(date2);
+                            calendar.add(Calendar.YEAR, 1);
+                            date2 = calendar.getTime();
+                            SimpleDateFormat formatterr = new SimpleDateFormat("dd/MM/yyyy");
+                            String strDate= formatterr.format(date2);
+                            out.println(strDate);
+                        %></td>
                         <td><% out.println(utilisateur.getRole().getLibelle_role());%></td>
                         <td>
                             <div class="float-right">
-                                <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierUtilisateur" type="button" class="btn btn-warning" onclick="modifierUtilisateur('<%=utilisateur.getId_utilisateur()%>', '<%=utilisateur.getNom().toUpperCase()%>', '<%=utilisateur.getPrenom().substring(0, 1).toUpperCase() + utilisateur.getPrenom().substring(1)%>', '<%=utilisateur.getEmail()%>','<%=utilisateur.getAdresse()%>', '<%=utilisateur.getVille()%>','<%=utilisateur.getCode_postal()%>', '<%=utilisateur.getNum_telephone()%>')" value="Modifier"/>
+                                <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierUtilisateur" type="button" class="btn btn-warning" onclick="modifierUtilisateur('<%=utilisateur.getId_utilisateur()%>', '<%=utilisateur.getNom().toUpperCase()%>', '<%=utilisateur.getPrenom().substring(0, 1).toUpperCase() + utilisateur.getPrenom().substring(1)%>', '<%=utilisateur.getEmail()%>','<%=utilisateur.getAdresse()%>', '<%=utilisateur.getVille()%>','<%=utilisateur.getCode_postal()%>', '<%=utilisateur.getNum_telephone()%>', '<%=utilisateur.getRole().getId_role()%>')" value="Détail"/>
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerUtilisateur<% out.print(utilisateur.getId_utilisateur());%>">Archiver</button>
 
                                 <div class="modal fade" id="supprimerUtilisateur<% out.print(utilisateur.getId_utilisateur());%>">
@@ -197,8 +215,14 @@
                                     <input type="text" class="form-control" id="villeUtilisateurModifier" name="villeUtilisateurModifier">
                                 </div>
                                 <div class="form-group">
-                                    <label for="telUtilisateurModifier">Ville</label>
+                                    <label for="telUtilisateurModifier">Numéro de téléphone</label>
                                     <input type="text" class="form-control" id="telUtilisateurModifier" name="telUtilisateurModifier">
+                                </div>
+                                <div class="form-group">
+                                    <label for="mdpUtilisateurModifier">Mot de passe</label>
+                                    <input type="password" class="form-control" id="mdpUtilisateurModifier" placeholder="Changer de mot de passe" name="mdpUtilisateurModifier">
+                                    <div class="valid-feedback">Valide</div>
+                                    <div class="invalid-feedback">Entrez un mot de passe d'au moins 8 caractères dont 1 majuscule, 1 chiffre, 1 caractère spécial (@?!#$)</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="roleUtilisateurModifier">Role</label>
@@ -214,7 +238,7 @@
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-warning" name="submit" value="Modifier"/>
+                                    <input type="submit" class="btn btn-warning" name="modifierUtilisateur" value="Modifier"/>
                                 </div>
                             </form>
                         </div>
@@ -225,16 +249,17 @@
     </div>
 </main>
 <script>
-    function modifierUtilisateur(id_utilisateur, nom, prenom, mail, adresse, ville, code_postal, tel){
+    function modifierUtilisateur(id_utilisateur, nom, prenom, mail, adresse, ville, code_postal, tel, role){
         //alert(id_classe+" "+nom_classe+" "+annee_classe+" "+id_niveau);
         $("#idUtilisateurModifier").attr('value', id_utilisateur);
         $("#nomUtilisateurModifier").attr('value', nom);
         $("#prenomUtilisateurModifier").attr('value', prenom);
-        $("#mailUtilisateurModifier").attr('value', adresse);
+        $("#mailUtilisateurModifier").attr('value', mail);
         $("#adresseUtilisateurModifier").attr('value', adresse);
         $("#villeUtilisateurModifier").attr('value', ville);
         $("#cpUtilisateurModifier").attr('value', code_postal);
         $("#telUtilisateurModifier").attr('value', tel);
+        $('#roleUtilisateurModifier option[value="'+role+'"]').prop('selected', true);
     }
 </script>
 

@@ -5,25 +5,35 @@ import beans.ConnexionBDD;
 import beans.Utilisateur;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class AbonnementDAO {
 
-    public static void creerAbonnement(Abonnement abonnement) throws SQLException, IOException, ClassNotFoundException {
+    public static int creerAbonnement(Abonnement abonnement) throws SQLException, IOException, ClassNotFoundException {
         Connection con = ConnexionBDD.connexion();
 
         String query = "insert into abonnement(numero_abonne, penalite, date_souscription" +
                 ") VALUES (?, ?, ?)";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, abonnement.getNumero_abonne());
         ps.setFloat(2, abonnement.getPenalite());
         ps.setString(3, abonnement.getDate_souscription());
 
-        int n = ps.executeUpdate();
+        int affectedRows = ps.executeUpdate();
+
+        if (affectedRows == 0) {
+            throw new SQLException("Creating user failed, no rows affected.");
+        }
+
+        try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                return generatedKeys.getInt(1);
+            }
+            else {
+                throw new SQLException("Creating user failed, no ID obtained.");
+            }
+        }
     }
 
     public static void modifierPenalite(Abonnement abonnement) throws SQLException, IOException, ClassNotFoundException {

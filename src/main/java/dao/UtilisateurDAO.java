@@ -12,6 +12,9 @@ public class UtilisateurDAO {
 
     public static void creerUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
 
+        AbonnementDAO abonnementDAO = new AbonnementDAO();
+        int id_abonnement = abonnementDAO.creerAbonnement(utilisateur.getAbonnement());
+
         String query = "insert into utilisateur(nom, prenom, mdp, adresse, ville, code_postal, telephone, " +
                 "mail, actif, id_abonnement, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
@@ -24,7 +27,7 @@ public class UtilisateurDAO {
         ps.setString(7, utilisateur.getNum_telephone());
         ps.setString(8, utilisateur.getEmail());
         ps.setInt(9, utilisateur.isActif());
-        ps.setInt(10, utilisateur.getAbonnement().getId_abonnement());
+        ps.setInt(10, id_abonnement);
         ps.setInt(11, utilisateur.getRole().getId_role());
 
         int n = ps.executeUpdate();
@@ -33,7 +36,7 @@ public class UtilisateurDAO {
     public static void modifierUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
 
         String query = "update utilisateur set nom = ?, prenom = ?, mdp = ?, adresse = ?, ville = ?, code_postal = ?, telephone = ?, " +
-                "mail = ?, actif = ?, id_abonnement = ?, id_role = ? where idClasse = ?";
+                "mail = ?, actif = ?, id_abonnement = ?, id_role = ? where id_utilisateur = ?";
         PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setString(1, utilisateur.getNom());
         ps.setString(2, utilisateur.getPrenom());
@@ -51,11 +54,11 @@ public class UtilisateurDAO {
         int n = ps.executeUpdate();
     }
 
-    public static void archiverUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
+    public static void archiverUtilisateur(int id_utilisateur) throws SQLException, IOException, ClassNotFoundException {
 
-        String query = "update utilisateur set actif = 0 where idClasse = ?";
+        String query = "update utilisateur set actif = 0 where id_utilisateur = ?";
         PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
-        ps.setInt(1, utilisateur.getId_utilisateur());
+        ps.setInt(1, id_utilisateur);
 
         int n = ps.executeUpdate();
     }
