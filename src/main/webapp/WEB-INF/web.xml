@@ -20,10 +20,6 @@
     <servlet-class>servlet.ConnexionServlet</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>DigitalServlet</servlet-name>
-    <servlet-class>servlet.DigitalSerlvet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>EmpruntServlet</servlet-name>
     <servlet-class>servlet.EmpruntServlet</servlet-class>
   </servlet>
@@ -48,6 +44,11 @@
     <servlet-class>servlet.UtilisateurCreerServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>CDServlet</servlet-name>
+    <servlet-class>servlet.CDSerlvet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>AccueilServlet</servlet-name>
     <url-pattern>/accueil</url-pattern>
@@ -61,8 +62,8 @@
     <url-pattern>/connexion</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>DigitalServlet</servlet-name>
-    <url-pattern>/digital</url-pattern>
+    <servlet-name>CDServlet</servlet-name>
+    <url-pattern>/cd</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>EmpruntServlet</servlet-name>

@@ -121,7 +121,8 @@
                                             List<Type> listeTypes = (ArrayList<Type>)request.getAttribute("types");
                                             for (Type type : listeTypes) {
                                         %>
-                                        <option style="white-space: pre"   value=<%out.println(type.getId_type());%>>
+
+                                        <option style="white-space: pre"  value=<%out.println(type.getId_type());%>>
                                             <% out.println(type.getLibelle_type());%></option>
                                         <% } %>
                                     </select>
