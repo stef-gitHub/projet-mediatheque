@@ -12,7 +12,10 @@ public class UtilisateurDAO {
 
     public static void creerUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
 
-        int id_abonnement = AbonnementDAO.creerAbonnement(utilisateur.getAbonnement());
+        int id_abonnement = 0;
+        if(utilisateur.getAbonnement() != null){
+            id_abonnement = AbonnementDAO.creerAbonnement(utilisateur.getAbonnement());
+        }
 
         String query = "insert into utilisateur(nom, prenom, mdp, adresse, ville, code_postal, telephone, " +
                 "mail, actif, id_abonnement, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
