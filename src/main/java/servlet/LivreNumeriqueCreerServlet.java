@@ -21,6 +21,7 @@ public class LivreNumeriqueCreerServlet extends HttpServlet{
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
         try {
+            // Créer un livre numérique via le formulaire dans la vue creerLivreNumerique.jsp
             if(request.getParameter("creerTitreLivreNumerique") != null) {
                 Support support = new Support();
                 support.setTitre(request.getParameter("creerTitreLivreNumerique"));

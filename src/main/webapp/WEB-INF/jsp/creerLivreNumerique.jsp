@@ -7,8 +7,13 @@
     <title>Ajouter un livre numérique</title>
 </head>
 <%@include file="navbar.jsp" %>
-<!-- Partie main -->
-<!-- Informations et texte-->
+<div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+    <div class="col-md-12 text-center">
+        <hr>
+        <h2 id="mon-texte" class="text-white font-weight-light"><a href="/accueil"><span class="float-right"><i class=" text-white fas fa-sign-out-alt"></i></span></a></h2>
+        <hr>
+    </div>
+</div>
 <div class="container">
     <h2>Ajouter un livre numérique </h2>
     <p>Les champs ci-dessous sont obligatoires</p>

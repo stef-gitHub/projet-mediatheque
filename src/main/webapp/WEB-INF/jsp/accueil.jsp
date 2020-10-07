@@ -1,79 +1,57 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Accueil</title>
-</head>
-<%@include file="navbar.jsp" %>
+<%@include file="head.jsp" %>
 
-            <!-- Informations et texte-->
-            <div class="row">
-                <div class="col-md-12 ">
-                    <h2 class="text-center display-4 font-weight-light">Tableau de bord</h2>
-                    <p class="lead text-center ">Voici la synthèse des flux et activités de votre médiathèque</p>
+<body style="background-color: #ffffff96">
+<div class="container-fluid" >
+    <div class="row d-flex d-md-block flex-nowrap wrapper">
+        <div class="accueil-bar-background-color col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+            <div class="list-group border-0 text-center text-md-left">
+                <!-- Abonnés -->
+                <a href="#menuAbonne" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-id-card"></i>
+                    <span class="d-none d-md-inline">Horaires<i class="ml-1 fas fa-caret-down"></i></span></a>
+                <div style="margin-bottom: 1px;" class="collapse" id="menuAbonne" data-parent="#sidebar">
+                    <a href="#" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
+                    <a href="utilisateur" class="monItemHref hover-color list-group-item" data-parent="menuAbonne"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
+                </div>
+                <!-- Livre -->
+                <a href="#menuLivre" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
+                    <span class="d-none d-md-inline">Newsletters<i class="ml-1 fas fa-caret-down"></i></span></a>
+                <div style="margin-bottom: 1px;" class="collapse" id="menuLivre" data-parent="#sidebar">
+                    <a href="creer_livre" class="monItemHref hover-color list-group-item" data-parent="#menuLivre"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
+                    <a href="livre" class="monItemHref hover-color list-group-item" data-parent="#menuLivre"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
+                </div>
+                <!-- CD -->
+                <a href="#menuCD" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
+                    <span class="d-none d-md-inline">Nous contacter<i class="ml-1 fas fa-caret-down"></i></span></a>
+                <div style="margin-bottom: 1px;" class="collapse" id="menuCD" data-parent="#sidebar">
+                    <a href="creer_cd" class="monItemHref hover-color list-group-item" data-parent="#menuCD"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
+                    <a href="cd" class="monItemHref hover-color list-group-item" data-parent="#menuCD"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
+                </div>
+                <!-- DVD -->
+                <a href="#menuDVD" class="monHref list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-book-open"></i>
+                    <span class="d-none d-md-inline">Plan d'accès<i class="ml-1 fas fa-caret-down"></i></span></a>
+                <div style="margin-bottom: 1px;" class="collapse" id="menuDVD" data-parent="#sidebar">
+                    <a href="creer_dvd" class="monItemHref hover-color list-group-item" data-parent="#menuDVD"><h6 class="monZoom ml-4"><i class="fas fa-plus"></i> Créer</h6></a>
+                    <a href="dvd" class="monItemHref hover-color list-group-item" data-parent="#menuDVD"><h6 class="monZoom ml-4"><i class="fab fa-whmcs"></i> Gérer</h6></a>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header d-flex align-items-center justify-content-between">
-                        <h4 class="card-title">Abonnés</h4>
-                        </div>
-                        <div class="card-body">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                            Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                            quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                            polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
-                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plu
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header d-flex align-items-center justify-content-between">
-                            <h4 class="card-title">Emprunts</h4>
-                        </div>
-                        <div class="card-body">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                            Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                            quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                            polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
-                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plu
-                        </div>
-                    </div>
+        </div>
+        <!-- Partie main -->
+        <main class="col-md-10 float-left col pl-md-2 main">
+            <!-- Titre + logo connexion -->
+            <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+                <div class="col-md-12 text-center">
+                    <hr>
+                    <h2 id="mon-texte" class="text-white font-weight-light"><a href="/accueil"><span class="float-right"><i class=" text-white fas fa-sign-out-alt"></i></span></a></h2>
+                    <hr>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header d-flex align-items-center justify-content-between">
-                            <h4 class="card-title">Livres</h4>
-                        </div>
-                        <div class="card-body">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                            Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                            quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                            polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
-                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plu
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header d-flex align-items-center justify-content-between">
-                            <h4 class="card-title">Digital</h4>
-                        </div>
-                        <div class="card-body">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                            Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                            quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                            polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié.
-                            Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plu
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <h1>Site vitrine</h1>
             </div>
         </main>
     </div>
 </div>
-<script>
-</script>
 </body>
 </html>

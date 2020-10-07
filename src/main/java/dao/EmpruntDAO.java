@@ -12,9 +12,7 @@ import java.util.ArrayList;
 
 public class EmpruntDAO {
 
-    /**
-     * Affiche la liste des emprunts
-     * */
+    // Afficher tous les emprunts
     public static ArrayList<Emprunt> afficherEmprunts() throws SQLException, IOException, ClassNotFoundException {
         ArrayList<Emprunt> emprunts = new ArrayList<>();
 
@@ -64,6 +62,8 @@ public class EmpruntDAO {
 
         return emprunts;
     }
+
+    // Créer un emprunt
     public static void creerEmprunt(Emprunt emprunt) throws SQLException, IOException, ClassNotFoundException {
         //ConnexionBDD.connexion();
         PreparedStatement preparedStatement = null;
@@ -81,6 +81,7 @@ public class EmpruntDAO {
         ConnexionBDD.connexion().close();
     }
 
+    // Modifier un emprunt
     public static void modifierEmprunt(Emprunt emprunt) throws SQLException, IOException, ClassNotFoundException {
         PreparedStatement preparedStatement = null;
         System.out.println("Modifier emprunt");
@@ -94,6 +95,7 @@ public class EmpruntDAO {
         ConnexionBDD.connexion().close();
     }
 
+    // Aricher un emprunt
     public static void archiverEmprunt(Emprunt emprunt) throws SQLException, IOException, ClassNotFoundException {
         PreparedStatement preparedStatement = null;
 

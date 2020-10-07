@@ -18,6 +18,7 @@ public class CdCreerServlet extends HttpServlet {
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/creerCD.jsp" ).forward( request, response );
     }
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
+        // Créer un CD via le formulaire dans la vue creerCD.jsp
         try {
             if(request.getParameter("creerTitreCd") != null) {
                 Support support = new Support();

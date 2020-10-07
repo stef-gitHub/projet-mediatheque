@@ -10,7 +10,13 @@
 
 <%@include file="navbar.jsp" %>
 
-            <!-- Informations et texte-->
+            <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+                <div class="col-md-12 text-center">
+                    <hr>
+                    <h2 id="mon-texte" class="text-white font-weight-light"><a href="/accueil"><span class="float-right"><i class=" text-white fas fa-sign-out-alt"></i></span></a></h2>
+                    <hr>
+                </div>
+            </div>
             <div style ="background-color: white;margin-top: 50px; max-width: 80%" class="container">
                 <div class="row">
                     <div class="col-md-12">

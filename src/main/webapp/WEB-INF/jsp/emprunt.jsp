@@ -7,6 +7,13 @@
     <title>Emprunt</title>
 </head>
 <%@include file="navbar.jsp" %>
+<div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+    <div class="col-md-12 text-center">
+        <hr>
+        <h2 id="mon-texte" class="text-white font-weight-light"><a href="/accueil"><span class="float-right"><i class=" text-white fas fa-sign-out-alt"></i></span></a></h2>
+        <hr>
+    </div>
+</div>
 <h2 class="text-center display-4 font-weight-light">Les emprunts</h2>
 <table class="table">
     <thead class="thead-dark">

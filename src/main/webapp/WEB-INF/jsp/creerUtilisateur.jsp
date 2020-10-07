@@ -1,26 +1,54 @@
+<%@ page import="beans.Role" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Ajouter un livre</title>
 </head>
 <%@include file="navbar.jsp" %>
-<!-- Partie main -->
-<!-- Informations et texte-->
+<div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+    <div class="col-md-12 text-center">
+        <hr>
+        <h2 id="mon-texte" class="text-white font-weight-light"><a href="/accueil"><span class="float-right"><i class=" text-white fas fa-sign-out-alt"></i></span></a></h2>
+        <hr>
+    </div>
+</div>
 <div class="container">
     <h2>Créer un utilisateur</h2>
     <p>Les champs ci-dessous sont obligatoires</p>
-    <form action="creer_livre" method="post" class="was-validated">
+    <form action="utilisateur" method="post">
+
         <div class="form-group">
-            <label for="creerTitreLivre">Nom</label>
-            <input type="text" class="form-control" id="creerTitreLivre" placeholder="Nom" name="creerNomUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez un nom</div>
+            <label for="nomUtilisateurCreer">Nom</label>
+            <input type="text" class="form-control" id="nomUtilisateurCreer" required name="nomUtilisateurCreer">
         </div>
         <div class="form-group">
-            <label for="creerPrenomUtilisateur">Prénom</label>
-            <input type="text" class="form-control" id="creerPrenomUtilisateur" placeholder="Prénom" name="creerPrenomUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez un prénom</div>
+            <label for="prenomUtilisateurCreer">Prénom</label>
+            <input type="text" class="form-control" id="prenomUtilisateurCreer" name="prenomUtilisateurCreer" required>
+        </div>
+        <div class="form-group">
+            <label for="mailUtilisateurCreer">Mail</label>
+            <input type="email" class="form-control" id="mailUtilisateurCreer" name="mailUtilisateurCreer" required>
+        </div>
+        <div class="form-group">
+            <label for="adresseUtilisateurCreer">Adresse</label>
+            <input type="text" class="form-control" id="adresseUtilisateurCreer" name="adresseUtilisateurCreer" required>
+        </div>
+
+        <div class="form-group row" style="margin-left:1px">
+            <div class="col-xs-2">
+                <label for="cpUtilisateurCreer">Code Postal</label>
+                <input type="number" class="form-control" id="cpUtilisateurCreer" name="cpUtilisateurCreer" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="villeEleveCreate">Ville</label>
+            <input type="text" class="form-control" id="villeEleveCreate" name="villeEleveCreate" required>
+        </div>
+        <div class="form-group">
+            <label for="telUtilisateurCreer">Numéro de téléphone</label>
+            <input type="text" class="form-control" id="telUtilisateurCreer" name="telUtilisateurCreer" required>
         </div>
         <div class="form-group">
             <label for="creerMdpUtilisateur">Mot de passe</label>
@@ -29,51 +57,27 @@
             <div class="invalid-feedback">Entrez un mot de passe d'au moins 8 caractères dont 1 majuscule, 1 chiffre, 1 caractère spécial (@?!#$)</div>
         </div>
         <div class="form-group">
-            <label for="creerAdresseUtilisateur">Adresse</label>
-            <input type="text" class="form-control" id="creerAdresseUtilisateur" placeholder="ex : 12 rue du cesi" name="creerAdresseUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez une adresse</div>
-        </div>
-        <div class="form-group">
-            <label for="creerVilleUtilisateur">Ville</label>
-            <input type="text" class="form-control" id="creerVilleUtilisateur" placeholder="ex: LE MANS" name="creerVilleUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez une ville</div>
-        </div>
-        <div class="form-group">
-            <label for="creerCpUtilisateur">Code postal</label>
-            <input type="number" class="form-control" id="creerCpUtilisateur" placeholder="ex : 72000" name="creerCpUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez un code postal</div>
-        </div>
-        <div class="form-group">
-            <label for="creerTelUtilisateur">Téléphone</label>
-            <input type="text" class="form-control" id="creerTelUtilisateur" placeholder="ex : 0607080906" name="creerTelUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez une quantité valide</div>
-        </div>
-        <div class="form-group">
-            <label for="creerEmailUtilisateur">Email</label>
-            <input type="email" class="form-control" id="creerEmailUtilisateur" placeholder="ex : stephane@viacesi.fr" name="creerEmailUtilisateur" required>
-            <div class="valid-feedback">Valide</div>
-            <div class="invalid-feedback">Entrez une adresse email valide</div>
-        </div>
-        <div class="form-group" id ="test">
-            <h5>Sélectionnez son rôle</h5>
-            <select id="selectRoleUtilisateur" name="selectRoleUtilisateur">
+            <label for="roleUtilisateurCreer">Role</label>
+            <br>
+            <select id="roleUtilisateurCreer" name="roleUtilisateurCreer">
                 <%
-                    // List<Role> listRoles = (ArrayList<Role>)request.getAttribute("roles");
-                    // for (Role roles : listRoles) {
+                    List<Role> listRoles = (ArrayList<Role>)request.getAttribute("roles");
+                    for (Role roles : listRoles) {
                 %>
-                <option style="white-space: pre" value=<%//out.println(roles.getId_role());%>>
-                    <%// out.println(roles.getLibelle_role().toUpperCase());%> </option>
+                <option style="white-space: pre" value=<%out.println(roles.getId_role());%>>
+                    <% out.println(roles.getLibelle_role().toUpperCase());%> </option>
 
-                <% //} %>
+                <% } %>
             </select>
         </div>
 
-
-        <button type="submit" class="btn btn-primary">Créer</button>
+        <!-- Modal CREATE footer -->
+        <div>
+            <div class="alert alert-secondary" role="alert">
+                Créer un utilisateur entraine la création d'un abonnnement d'un an à partir d'aujourd'hui
+            </div>
+            <input type="submit" class="btn btn-success" name="creerUtilisateur" value="Créer"/>
+        </div>
     </form>
 </div>
 </main>

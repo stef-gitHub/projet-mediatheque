@@ -15,7 +15,7 @@ public class Utilisateur {
     private int code_postal;
     private String num_telephone;
     private int isActif;
-    private Abonnement unAbonnement;
+    private Abonnement abonnement;
 
     @Override
     public String toString() {
@@ -31,23 +31,23 @@ public class Utilisateur {
                 ", code_postal=" + code_postal +
                 ", num_telephone='" + num_telephone + '\'' +
                 ", isActif=" + isActif +
-                ", unAbonnement=" + unAbonnement +
+                ", unAbonnement=" + abonnement +
                 '}';
     }
 
-    public Utilisateur(String nom, String prenom, String adresse, String mdp, String email, String ville, Role id_role,
-                       int code_postal, String num_telephone, int isActif, Abonnement unAbonnement) {
+    public Utilisateur(String nom, String prenom, String adresse, String mdp, String email, String ville, Role role,
+                       int code_postal, String num_telephone, int isActif, Abonnement abonnement) {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.mdp = mdp;
         this.email = email;
         this.ville = ville;
-        this.role = id_role;
+        this.role = role;
         this.code_postal = code_postal;
         this.num_telephone = num_telephone;
         this.isActif = isActif;
-        this.unAbonnement = unAbonnement;
+        this.abonnement = abonnement;
     }
 
     public Utilisateur() {
@@ -125,14 +125,6 @@ public class Utilisateur {
         this.role = role;
     }
 
-    public int getIsActif() {
-        return isActif;
-    }
-
-    public void setIsActif(int isActif) {
-        this.isActif = isActif;
-    }
-
     public int getCode_postal() {
         return code_postal;
     }
@@ -149,11 +141,11 @@ public class Utilisateur {
         this.num_telephone = num_telephone;
     }
 
-    public Abonnement getUnAbonnement() {
-        return unAbonnement;
+    public Abonnement getAbonnement() {
+        return abonnement;
     }
 
-    public void setUnAbonnement(Abonnement unAbonnement) {
-        this.unAbonnement = unAbonnement;
+    public void setAbonnement(Abonnement abonnement) {
+        this.abonnement = abonnement;
     }
 }
