@@ -1,8 +1,10 @@
 package servlet;
 
 import beans.Support;
+import beans.Utilisateur;
 import dao.SupportDAO;
 import dao.TypeDAO;
+import dao.UtilisateurDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
