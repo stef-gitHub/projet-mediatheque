@@ -56,11 +56,5 @@
         <!-- Partie main -->
         <main class="col-md-10 float-left col pl-md-2 main">
             <!-- Titre + logo connexion -->
-            <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
-                <div class="col-md-12 text-center">
-                    <hr>
-                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i id ="logo-connexion" class="text-white fas fa-user"></i></span></h2>
-                    <hr>
-                </div>
-            </div>
+
 

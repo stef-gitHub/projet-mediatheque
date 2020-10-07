@@ -23,9 +23,7 @@ public class AuthentificationDAO {
         if(rs.next()){
             Utilisateur u = new Utilisateur();
             u.setRole(RoleDAO.afficherRole(rs.getInt("id_role")));
-            u.setId_utilisateur(rs.getInt("id_utilisateur"));
-            u.setPrenom(rs.getString("prenom"));
-            u.setNom(rs.getString("nom"));
+            u = UtilisateurDAO.afficherUtilisateur(rs.getInt("id_utilisateur"));
             return u;
         }
         else{
