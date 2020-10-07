@@ -11,12 +11,10 @@
 <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
     <div class="col-md-12 text-center">
         <hr>
-        <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></h2>
+        <h2 id="mon-texte" class="text-white font-weight-light"><a href="/accueil"><span class="float-right"><i class=" text-white fas fa-sign-out-alt"></i></span></a></h2>
         <hr>
     </div>
 </div>
-<!-- Partie main -->
-<!-- Informations et texte-->
 <div class="container">
     <h2>Modifier votre profil</h2>
     <p>Les champs ci-dessous sont obligatoires</p>
