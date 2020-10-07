@@ -3,6 +3,7 @@ package dao;
 import beans.ConnexionBDD;
 import beans.Utilisateur;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

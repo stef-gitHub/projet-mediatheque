@@ -77,6 +77,11 @@
     <servlet-name>LivreNumeriqueCreerServlet</servlet-name>
     <servlet-class>servlet.LivreNumeriqueCreerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ProfilServlet</servlet-name>
+    <servlet-class>servlet.ProfilServlet</servlet-class>
+  </servlet>
+
 
   <servlet-mapping>
     <servlet-name>SiteAccueiAdministrateurlServlet</servlet-name>
@@ -150,5 +155,9 @@
   <servlet-mapping>
     <servlet-name>EmpruntCreerServlet</servlet-name>
     <url-pattern>/creer_emprunt</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProfilServlet</servlet-name>
+    <url-pattern>/profil</url-pattern>
   </servlet-mapping>
 </web-app>
