@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class AuthentificationServlet extends HttpServlet {
@@ -42,6 +43,10 @@ public class AuthentificationServlet extends HttpServlet {
             }
 
             if (utilisateur.getRole() != null){
+
+                HttpSession session = request.getSession();
+                session.setAttribute("id_utilisateur", utilisateur.getId_utilisateur());
+
                 // redirige sur la page admin si c est un admin
                 if(utilisateur.getRole().getId_role() == admin){
                     response.sendRedirect("accueil_administrateur");
