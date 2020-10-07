@@ -8,6 +8,13 @@
     <title>Ajouter un livre</title>
 </head>
 <%@include file="navbar.jsp" %>
+<div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+    <div class="col-md-12 text-center">
+        <hr>
+        <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></h2>
+        <hr>
+    </div>
+</div>
 <!-- Partie main -->
 <!-- Informations et texte-->
 <div class="container">
