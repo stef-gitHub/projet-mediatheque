@@ -31,6 +31,7 @@
         <div class="form-group">
             <label for="creerQuantiteLivre">Quantité</label>
             <input type="number" class="form-control" id="creerQuantiteLivre" placeholder="ex : 10" name="creerQuantiteLivre" required>
+
             <div class="valid-feedback">Valide</div>
             <div class="invalid-feedback">Entrez une quantité</div>
         </div>

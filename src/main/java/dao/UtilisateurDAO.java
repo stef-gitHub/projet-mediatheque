@@ -12,8 +12,7 @@ public class UtilisateurDAO {
 
     public static void creerUtilisateur(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
 
-        AbonnementDAO abonnementDAO = new AbonnementDAO();
-        int id_abonnement = abonnementDAO.creerAbonnement(utilisateur.getAbonnement());
+        int id_abonnement = AbonnementDAO.creerAbonnement(utilisateur.getAbonnement());
 
         String query = "insert into utilisateur(nom, prenom, mdp, adresse, ville, code_postal, telephone, " +
                 "mail, actif, id_abonnement, id_role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -65,14 +64,11 @@ public class UtilisateurDAO {
 
     public static ArrayList<Utilisateur> afficherListeUtilisateur() throws SQLException, IOException, ClassNotFoundException {
 
-        String query = "select * from utilisateur where actif = 1";
+        String query = "select * from utilisateur where actif = 1 and id_role = 2";
         PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
 
         ResultSet rs = ps.executeQuery();
-        ArrayList<Utilisateur> lu = new ArrayList();
-
-        AbonnementDAO abonnementDAO = new AbonnementDAO();
-        RoleDAO roleDAO = new RoleDAO();
+        ArrayList<Utilisateur> lu = new ArrayList<>();
 
         while (rs.next()) {
             Utilisateur utilisateur = new Utilisateur();
@@ -85,8 +81,8 @@ public class UtilisateurDAO {
             utilisateur.setNum_telephone(rs.getString("telephone"));
             utilisateur.setEmail(rs.getString("mail"));
             utilisateur.setActif(rs.getInt("actif"));
-            utilisateur.setAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
-            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setAbonnement(AbonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
+            utilisateur.setRole(RoleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
             lu.add(utilisateur);
         }
@@ -101,9 +97,6 @@ public class UtilisateurDAO {
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
 
-        AbonnementDAO abonnementDAO = new AbonnementDAO();
-        RoleDAO roleDAO = new RoleDAO();
-
         Utilisateur utilisateur = new Utilisateur();
         while (rs.next()) {
             utilisateur.setNom(rs.getString("nom"));
@@ -115,8 +108,8 @@ public class UtilisateurDAO {
             utilisateur.setNum_telephone(rs.getString("telephone"));
             utilisateur.setEmail(rs.getString("mail"));
             utilisateur.setActif(rs.getInt("actif"));
-            utilisateur.setAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
-            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setAbonnement(AbonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
+            utilisateur.setRole(RoleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
         }
 

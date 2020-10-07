@@ -12,19 +12,19 @@
     <form action="creer_livre" method="post" class="was-validated">
         <div class="form-group">
             <label for="creerTitreLivre">Titre</label>
-            <input type="text" class="form-control" id="creerTitreLivre" placeholder="Titre du livre" name="creerTitreLivre" required>
+            <input type="text" class="form-control" id="creerTitreLivre" placeholder="ex : Voyage au bout de la nuit" name="creerTitreLivre" required>
             <div class="valid-feedback">Valide</div>
             <div class="invalid-feedback">Entrez un titre valide</div>
         </div>
         <div class="form-group">
             <label for="creerAuteurLivre">Auteur</label>
-            <input type="text" class="form-control" id="creerAuteurLivre" placeholder="ex : Charles Beaudelaire" name="creerAuteurLivre" required>
+            <input type="text" class="form-control" id="creerAuteurLivre" placeholder="ex : Louis Ferdinand Céline" name="creerAuteurLivre" required>
             <div class="valid-feedback">Valide</div>
             <div class="invalid-feedback">Entrez un auteur valide</div>
         </div>
         <div class="form-group">
             <label for="creerAnneeLivre">Année</label>
-            <input type="text" class="form-control" id="creerAnneeLivre" placeholder="Année de parution" name="creerAnneeLivre" required>
+            <input type="text" class="form-control" id="creerAnneeLivre" placeholder="ex : 1932" name="creerAnneeLivre" required>
             <div class="valid-feedback">Valide</div>
             <div class="invalid-feedback">Entrez l'année de parution</div>
         </div>

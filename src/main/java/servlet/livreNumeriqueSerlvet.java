@@ -18,38 +18,37 @@ public class livreNumeriqueSerlvet extends HttpServlet {
         int id_type_livre_numerique = 4;
 
         try {
+            // Afficher tous les livres numériques via le formulaire dans la vue livre_numerique.jsp
             request.setAttribute("livresNumeriques", SupportDAO.afficherSupportsFiltres(id_type_livre_numerique));
             request.setAttribute("types", TypeDAO.afficherType());
 
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
-
-
         this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/livreNumerique.jsp" ).forward( request, response );
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 
         try {
+            // Modifier un livre numérique via le formulaire dans la vue livre_numerique.jsp
+            if(request.getParameter("modifierNomLivreNumerique") != null) {
+                Support support = new Support();
+                support.setId_support(Integer.parseInt(request.getParameter("idLivreNumeriqueModifier")));;
+                support.setTitre(request.getParameter("modifierNomLivreNumerique"));
+                support.setAuteur(request.getParameter("modifierAuteurLivreNumerique"));
+                support.setDate(request.getParameter("modifierAnneeLivreNumerique"));
+                support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteLivreNumerique")));
+                support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeLivreNumerique"))));
+                SupportDAO.modifierSupport(support);
 
-        if(request.getParameter("modifierNomLivreNumerique") != null) {
-            System.out.println("test");
-            Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idLivreNumeriqueModifier")));;
-            support.setTitre(request.getParameter("modifierNomLivreNumerique"));
-            support.setAuteur(request.getParameter("modifierAuteurLivreNumerique"));
-            support.setDate(request.getParameter("modifierAnneeLivreNumerique"));
-            support.setQuantite(Integer.parseInt(request.getParameter("modifierQuantiteLivreNumerique")));
-            support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeLivreNumerique"))));
-            SupportDAO.modifierSupport(support);
-
-        }else if(request.getParameter("supprimerLivreNumerique") != null){
-            Support support = new Support();
-            support.setId_support(Integer.parseInt(request.getParameter("idLivreNumerique")));
-            SupportDAO.archiverSupport(support);
-        }
-        response.sendRedirect("livre_numerique");
+                // Archiver un livre numérique via le formulaire dans la vue livre_numerique.jsp
+            }else if(request.getParameter("supprimerLivreNumerique") != null){
+                Support support = new Support();
+                support.setId_support(Integer.parseInt(request.getParameter("idLivreNumerique")));
+                SupportDAO.archiverSupport(support);
+            }
+            response.sendRedirect("livre_numerique");
         } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
         }

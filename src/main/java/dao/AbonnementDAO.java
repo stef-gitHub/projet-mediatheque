@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class AbonnementDAO {
 
+    // créer un abonnement
     public static int creerAbonnement(Abonnement abonnement) throws SQLException, IOException, ClassNotFoundException {
         Connection con = ConnexionBDD.connexion();
 
@@ -47,6 +48,7 @@ public class AbonnementDAO {
         int n = ps.executeUpdate();
     }
 
+    // Afficher un abonnement par l'id
     public static Abonnement afficherAbonnement(int id) throws SQLException, IOException, ClassNotFoundException {
         Connection con = ConnexionBDD.connexion();
 
@@ -66,6 +68,7 @@ public class AbonnementDAO {
         return abonnement;
     }
 
+    // Afficher la liste des abonnements
     public static ArrayList<Abonnement> afficherAbonnement(Utilisateur utilisateur) throws SQLException, IOException, ClassNotFoundException {
         Connection con = ConnexionBDD.connexion();
 

@@ -18,6 +18,7 @@ public class LivreSerlvet extends HttpServlet {
         int id_type_livre = 1;
 
         try {
+            //Afficher tous les livres dans livre.jsp
             request.setAttribute("livres", SupportDAO.afficherSupportsFiltres(id_type_livre));
             request.setAttribute("types", TypeDAO.afficherType());
 
@@ -30,7 +31,7 @@ public class LivreSerlvet extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
 
         try {
-        // Modifier un livre par son ID
+        // Modifier un livre par son ID via le formulaure dans livre.jsp
         if(request.getParameter("modifierNomLivre") != null) {
             Support support = new Support();
             support.setId_support(Integer.parseInt(request.getParameter("idLivreModifier")));;
@@ -41,6 +42,7 @@ public class LivreSerlvet extends HttpServlet {
             support.setType(TypeDAO.getTypeById(Integer.parseInt(request.getParameter("modifierTypeLivre"))));
             SupportDAO.modifierSupport(support);
 
+        // Archiver un livre par son ID via le formulaure dans livre.jsp
         }else if(request.getParameter("supprimerLivre") != null){
             Support support = new Support();
             support.setId_support(Integer.parseInt(request.getParameter("idLivre")));

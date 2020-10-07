@@ -18,7 +18,7 @@ public class EmpruntServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            // Affiche tous les emprunts via le formulaire dans la vue emprunt.jsp
             request.setAttribute("emprunts", EmpruntDAO.afficherEmprunts());
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
