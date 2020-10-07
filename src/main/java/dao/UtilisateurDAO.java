@@ -25,7 +25,7 @@ public class UtilisateurDAO {
         ps.setString(8, utilisateur.getEmail());
         ps.setInt(9, utilisateur.isActif());
         ps.setInt(10, utilisateur.getUnAbonnement().getId_abonnement());
-        ps.setInt(11, utilisateur.getId_role().getId_role());
+        ps.setInt(11, utilisateur.getRole().getId_role());
 
         int n = ps.executeUpdate();
     }
@@ -45,7 +45,7 @@ public class UtilisateurDAO {
         ps.setString(8, utilisateur.getEmail());
         ps.setInt(9, utilisateur.isActif());
         ps.setInt(10, utilisateur.getUnAbonnement().getId_abonnement());
-        ps.setInt(11, utilisateur.getId_role().getId_role());
+        ps.setInt(11, utilisateur.getRole().getId_role());
         ps.setInt(12, utilisateur.getId_utilisateur());
 
         int n = ps.executeUpdate();
@@ -83,7 +83,7 @@ public class UtilisateurDAO {
             utilisateur.setEmail(rs.getString("mail"));
             utilisateur.setActif(rs.getInt("actif"));
             utilisateur.setUnAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
-            utilisateur.setId_role(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
             lu.add(utilisateur);
         }
@@ -113,7 +113,7 @@ public class UtilisateurDAO {
             utilisateur.setEmail(rs.getString("mail"));
             utilisateur.setActif(rs.getInt("actif"));
             utilisateur.setUnAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
-            utilisateur.setId_role(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
             utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
         }
  
@@ -140,6 +140,38 @@ public class UtilisateurDAO {
 
         return utilisateur;
 
+    }
+
+
+    public static ArrayList<Utilisateur> afficherAbonnee() throws SQLException, IOException, ClassNotFoundException {
+
+        String query = "select * from utilisateur where utilisateur.id_role = 2";
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
+
+        ResultSet rs = ps.executeQuery();
+        ArrayList<Utilisateur> lu = new ArrayList();
+
+        AbonnementDAO abonnementDAO = new AbonnementDAO();
+        RoleDAO roleDAO = new RoleDAO();
+
+        while (rs.next()) {
+            Utilisateur utilisateur = new Utilisateur();
+            utilisateur.setNom(rs.getString("nom"));
+            utilisateur.setPrenom(rs.getString("prenom"));
+            utilisateur.setMdp(rs.getString("mdp"));
+            utilisateur.setAdresse(rs.getString("adresse"));
+            utilisateur.setVille(rs.getString("ville"));
+            utilisateur.setCode_postal(rs.getInt("code_postal"));
+            utilisateur.setNum_telephone(rs.getString("telephone"));
+            utilisateur.setEmail(rs.getString("mail"));
+            utilisateur.setActif(rs.getInt("actif"));
+            utilisateur.setUnAbonnement(abonnementDAO.afficherAbonnement(rs.getInt("id_abonnement")));
+            utilisateur.setRole(roleDAO.afficherRole(rs.getInt("id_role")));
+            utilisateur.setId_utilisateur(rs.getInt("id_utilisateur"));
+            lu.add(utilisateur);
+        }
+
+        return lu;
     }
 
 }

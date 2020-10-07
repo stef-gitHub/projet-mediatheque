@@ -62,7 +62,7 @@ public class SupportDAO {
 
         String query = "SELECT * FROM support inner join type on support.id_type = type.id_type where support.id_type = " + idType +" and support.actif = 1";
 
-        System.out.println(query);
+        System.out.println("Requete : " + query);
 
         Statement st = ConnexionBDD.connexion().createStatement();
         ResultSet rs = st.executeQuery(query);

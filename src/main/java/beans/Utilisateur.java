@@ -11,7 +11,7 @@ public class Utilisateur {
     private String mdp;
     private String email;
     private String ville;
-    private Role id_role;
+    private Role role;
     private int code_postal;
     private String num_telephone;
     private int isActif;
@@ -27,7 +27,7 @@ public class Utilisateur {
                 ", mdp='" + mdp + '\'' +
                 ", email='" + email + '\'' +
                 ", ville='" + ville + '\'' +
-                ", id_role=" + id_role +
+                ", id_role=" + role +
                 ", code_postal=" + code_postal +
                 ", num_telephone='" + num_telephone + '\'' +
                 ", isActif=" + isActif +
@@ -43,7 +43,7 @@ public class Utilisateur {
         this.mdp = mdp;
         this.email = email;
         this.ville = ville;
-        this.id_role = id_role;
+        this.role = id_role;
         this.code_postal = code_postal;
         this.num_telephone = num_telephone;
         this.isActif = isActif;
@@ -117,12 +117,20 @@ public class Utilisateur {
         this.ville = ville;
     }
 
-    public Role getId_role() {
-        return id_role;
+    public Role getRole() {
+        return role;
     }
 
-    public void setId_role(Role id_role) {
-        this.id_role = id_role;
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public int getIsActif() {
+        return isActif;
+    }
+
+    public void setIsActif(int isActif) {
+        this.isActif = isActif;
     }
 
     public int getCode_postal() {
