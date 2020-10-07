@@ -50,7 +50,6 @@ public class UtilisateurDAO {
         ps.setInt(11, utilisateur.getRole().getId_role());
         ps.setInt(12, utilisateur.getId_utilisateur());
 
-        int n = ps.executeUpdate();
     }
 
     public static void archiverUtilisateur(int id_utilisateur) throws SQLException, IOException, ClassNotFoundException {
@@ -59,7 +58,6 @@ public class UtilisateurDAO {
         PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setInt(1, id_utilisateur);
 
-        int n = ps.executeUpdate();
     }
 
     public static ArrayList<Utilisateur> afficherListeUtilisateur() throws SQLException, IOException, ClassNotFoundException {

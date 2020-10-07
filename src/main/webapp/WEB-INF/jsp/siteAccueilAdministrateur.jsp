@@ -6,6 +6,13 @@
 </head>
 <%@include file="navbar.jsp" %>
 
+            <div class="row accueil-bar-color" style="padding-top: 8px;padding-bottom: 8px;">
+                <div class="col-md-12 text-center">
+                    <hr>
+                    <h2 id="mon-texte" class="text-white font-weight-light"><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></h2>
+                    <hr>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12 ">
                     <h2 class="text-center display-4 font-weight-light">Tableau de bord </h2>
@@ -71,11 +78,8 @@
                 </div>
             </div>
         </main>
-    </div>
-</div>
 <script>
-    let test = document.getElementById('logo-connexion');
-    test.style.display = 'none';
+
 </script>
 </body>
 </html>
