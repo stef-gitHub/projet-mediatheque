@@ -45,16 +45,17 @@ public class UtilisateurCreerServlet  extends HttpServlet {
                 u.setNum_telephone(request.getParameter("telUtilisateurCreer"));
                 u.setEmail(request.getParameter("mailUtilisateurCreer"));
                 u.setActif(1);
-
-                Abonnement a = new Abonnement();
-                a.setNumero_abonne(a.creerNumABonne(u.getNom(), u.getPrenom()));
-                a.setPenalite(0);
-                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                Date date = new Date();
-                a.setDate_souscription(formatter.format(date));
-
-                u.setAbonnement(a);
                 u.setRole(roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
+
+                if(u.getRole().getId_role() == 2){
+                    Abonnement a = new Abonnement();
+                    a.setNumero_abonne(a.creerNumABonne(u.getNom(), u.getPrenom()));
+                    a.setPenalite(0);
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    Date date = new Date();
+                    a.setDate_souscription(formatter.format(date));
+                    u.setAbonnement(a);
+                }
 
                 utilisateurDAO.creerUtilisateur(u);
 
