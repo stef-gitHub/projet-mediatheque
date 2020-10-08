@@ -1,6 +1,6 @@
 // Affiche le texte automatiquement
 let i = 0;
-let txt = 'Bienvenue sur votre interface de gestion' ;
+let txt = 'Bienvenue sur Media+' ;
 let  speed = 50;
 
 window.onload = function typeWriter() {
