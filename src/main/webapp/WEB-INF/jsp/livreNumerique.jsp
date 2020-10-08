@@ -52,7 +52,7 @@
                     <td> <% out.print(supportLivreNumerique.getType().getLibelle_type());%></td>
                     <td>
                         <div class="float-right">
-                            <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivreNumerique" type="button" class="btn btn-warning" onclick="modifier('<% out.print(supportLivreNumerique.getId_support());%>', '<% out.print(supportLivreNumerique.getTitre());%>', '<% out.print(supportLivreNumerique.getAuteur());%>', '<% out.print(supportLivreNumerique.getDate());%>', '<% out.print(supportLivreNumerique.getQuantite());%>', '<% out.print(supportLivreNumerique.getType().getId_type());%>')" value="Modifier"/>
+                            <input style="margin-right: 50px;" data-toggle="modal" data-target="#modifierLivreNumerique" type="button" class="btn btn-warning" onclick="modifierNumerique('<% out.print(supportLivreNumerique.getId_support());%>', '<% out.print(supportLivreNumerique.getTitre());%>', '<% out.print(supportLivreNumerique.getAuteur());%>', '<% out.print(supportLivreNumerique.getDate());%>', '<% out.print(supportLivreNumerique.getQuantite());%>', '<% out.print(supportLivreNumerique.getType().getId_type());%>')" value="Modifier"/>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#supprimerLivreNumerique<%out.print(supportLivreNumerique.getId_support());%>">Archiver</button>
                             <!-- The Modal Professor DELETE -->
                             <div class="modal fade" id="supprimerLivreNumerique<% out.print(supportLivreNumerique.getId_support());%>">
@@ -150,7 +150,7 @@
 </div>
 </main>
 <script>
-    function modifier(id_LivreNumerique, titre_LivreNumerique, auteur_LivreNumerique, annee_LivreNumerique, quantite_LivreNumerique, type_LivreNumerique){
+    function modifierNumerique(id_LivreNumerique, titre_LivreNumerique, auteur_LivreNumerique, annee_LivreNumerique, quantite_LivreNumerique, type_LivreNumerique){
         //alert(id_classe+" "+nom_classe+" "+annee_classe+" "+id_niveau);
         $("#idLivreNumeriqueModifier").attr('value', id_LivreNumerique);
         $("#modifierNomLivreNumerique").attr('value', titre_LivreNumerique);
