@@ -21,11 +21,9 @@ public class UtilisateurServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        RoleDAO roleDAO = new RoleDAO();
-
         try {
             request.setAttribute("utilisateurs", UtilisateurDAO.afficherListeUtilisateur());
-            request.setAttribute("roles", roleDAO.afficherRole());
+            request.setAttribute("roles", RoleDAO.afficherRole());
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -36,8 +34,6 @@ public class UtilisateurServlet extends HttpServlet {
     }
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException {
-        UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
-        RoleDAO roleDAO = new RoleDAO();
 
         try {
             if(request.getParameter("creerUtilisateur") != null) {
@@ -52,7 +48,7 @@ public class UtilisateurServlet extends HttpServlet {
                 u.setNum_telephone(request.getParameter("telUtilisateurCreer"));
                 u.setEmail(request.getParameter("mailUtilisateurCreer"));
                 u.setActif(1);
-                u.setRole(roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
+                u.setRole(RoleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
                 if(u.getRole().getId_role() == 2){
                     Abonnement a = new Abonnement();
                     a.setNumero_abonne(a.creerNumABonne(u.getNom(), u.getPrenom()));
@@ -63,15 +59,15 @@ public class UtilisateurServlet extends HttpServlet {
                     u.setAbonnement(a);
                 }
 
-                utilisateurDAO.creerUtilisateur(u);
+                UtilisateurDAO.creerUtilisateur(u);
 
             }else if(request.getParameter("archiverUtilisateur") != null){
 
-                utilisateurDAO.archiverUtilisateur(Integer.parseInt(request.getParameter("idUtilisateur")));
+                UtilisateurDAO.archiverUtilisateur(Integer.parseInt(request.getParameter("idUtilisateur")));
 
             }else if(request.getParameter("modifierUtilisateur") != null){
 
-                Utilisateur u = utilisateurDAO.afficherUtilisateur(Integer.parseInt(request.getParameter("idUtilisateurModifier")));
+                Utilisateur u = UtilisateurDAO.afficherUtilisateur(Integer.parseInt(request.getParameter("idUtilisateurModifier")));
 
                 u.setNom(request.getParameter("nomUtilisateurModifier"));
                 u.setPrenom(request.getParameter("prenomUtilisateurModifier"));
@@ -83,10 +79,10 @@ public class UtilisateurServlet extends HttpServlet {
                 u.setCode_postal(Integer.parseInt(request.getParameter("cpUtilisateurModifier")));
                 u.setNum_telephone(request.getParameter("telUtilisateurModifier"));
                 u.setEmail(request.getParameter("mailUtilisateurModifier"));
-                Role r = roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurModifier")));
+                Role r = RoleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurModifier")));
                 u.setRole(r);
 
-                utilisateurDAO.modifierUtilisateur(u);
+                UtilisateurDAO.modifierUtilisateur(u);
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();

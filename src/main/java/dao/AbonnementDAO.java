@@ -12,11 +12,10 @@ public class AbonnementDAO {
 
     // créer un abonnement
     public static int creerAbonnement(Abonnement abonnement) throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "insert into abonnement(numero_abonne, penalite, date_souscription" +
                 ") VALUES (?, ?, ?)";
-        PreparedStatement ps = con.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, abonnement.getNumero_abonne());
         ps.setFloat(2, abonnement.getPenalite());
         ps.setString(3, abonnement.getDate_souscription());
@@ -50,10 +49,9 @@ public class AbonnementDAO {
 
     // Afficher un abonnement par l'id
     public static Abonnement afficherAbonnement(int id) throws SQLException, IOException, ClassNotFoundException {
-        Connection con = ConnexionBDD.connexion();
 
         String query = "select * from abonnement where id_abonnement = ?";
-        PreparedStatement ps = con.prepareStatement(query);
+        PreparedStatement ps = ConnexionBDD.connexion().prepareStatement(query);
         ps.setInt(1, id);
         ResultSet rs = ps.executeQuery();
 
