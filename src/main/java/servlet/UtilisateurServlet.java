@@ -53,6 +53,7 @@ public class UtilisateurServlet extends HttpServlet {
                 u.setEmail(request.getParameter("mailUtilisateurCreer"));
                 u.setActif(1);
                 u.setRole(roleDAO.afficherRole(Integer.parseInt(request.getParameter("roleUtilisateurCreer"))));
+
                 if(u.getRole().getId_role() == 2){
                     Abonnement a = new Abonnement();
                     a.setNumero_abonne(a.creerNumABonne(u.getNom(), u.getPrenom()));
